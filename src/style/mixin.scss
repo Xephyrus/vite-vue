@@ -1,0 +1,64 @@
+$primary: #1e80ff;
+$text-gray: #909090;
+
+$colors: (
+  'primary': #1e80ff,
+  'white': #fff,
+  'light': #f9f9f9,
+  'light-1': #d4d9de,
+  'black': #000,
+  'dark': #282828,
+  'dark-1': #343440,
+  'grey': #999,
+  'grey-1': #666,
+  'info': #4b67af
+);
+
+$pixiels: (4, 8, 12, 16, 20, 24, 28, 32, 40, 60);
+
+@each $colorKey, $color in $colors {
+  .text-#{$colorKey} {
+    color: $color;
+  }
+  .bg-#{$colorKey} {
+    background-color: $color;
+    padding: 16px;
+  }
+}
+/** 定义需要遍历的对象 */
+$marAndPadAndFontList: (
+  4: 4px,
+  5: 5px,
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  14: 14px,
+  15: 15px,
+  16: 16px,
+  18: 18px,
+  20: 20px,
+  22: 22px,
+  24: 24px,
+  26: 26px,
+  28: 28px,
+  32: 32px,
+  36: 36px,
+  40: 40px
+);
+@each $pixielKey, $pixiel in $marAndPadAndFontList {
+  .mt-#{$pixielKey} {
+    margin-top: $pixiel;
+  }
+  .mr-#{$pixielKey} {
+    margin-right: $pixiel;
+  }
+  .mb-#{$pixielKey} {
+    margin-bottom: $pixiel;
+  }
+  .ml-#{$pixielKey} {
+    margin-left: $pixiel;
+  }
+  .mg-#{$pixielKey} {
+    margin: $pixiel;
+  }
+}

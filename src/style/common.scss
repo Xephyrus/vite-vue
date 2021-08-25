@@ -1,0 +1,45 @@
+
+// 做一个标识, 不要影响所有的svg
+.icon path { fill: inherit important }
+
+/* 修改 滚动条 下面 的 宽度 */
+.scroll {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 8px;
+  cursor: default;
+}
+
+/* 修改 滚动条的 下面 的 样式 */
+.scroll::-webkit-scrollbar-track {
+  cursor: default;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* 修改 滑块 */
+.scroll::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+// 清除浮动
+.clear:after {
+  display: block;
+  height: 0;
+  content: "";
+  clear: both
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.half {
+  width: 50%;
+}

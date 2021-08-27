@@ -2,16 +2,13 @@
   <div class="radar"></div>
 </template>
 
-<script>
-export default {}
-</script>
-
 <style lang="scss" scoped>
 @keyframes scanning {
   to {
     transform: rotate(360deg);
   }
 }
+
 .radar {
   font-size: 30px;
   width: calc(8em + 1.5em);

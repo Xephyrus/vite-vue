@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import { ref } from 'vue'
+
 export default {
   setup(props) {
     const list = ref<any[]>([
@@ -52,6 +53,7 @@ export default {
     transform: rotate(var(--i));
   }
 }
+
 .album {
   font-size: 22.66667px;
   width: 15em;

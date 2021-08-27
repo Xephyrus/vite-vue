@@ -17,7 +17,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, ref } from 'vue'
+
 export default defineComponent({
   setup(props) {
     const cards = ref<any[]>([
@@ -34,11 +35,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 $fontColor: #ffc0cb;
 $levelShadow: #22325480;
+
 .levels {
-  //   font-size: 15px;
-  //   width: 20em;
-  //   height: 20em;
-  //   background: #fff;
   transform-style: preserve-3d;
   user-select: none;
 

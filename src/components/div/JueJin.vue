@@ -6,6 +6,7 @@
 
 <style lang="scss" scoped>
 $theme: #1e80ff;
+
 .juejin {
   font-size: 20px;
   width: 15em;
@@ -15,14 +16,19 @@ $theme: #1e80ff;
   justify-content: center;
   align-items: center;
   border-radius: 25%;
+  transition: 0.3s all;
 
   &:hover {
-    background-color: lighten($color: $theme, $amount: 10%);
+    // background-color: lighten($color: $theme, $amount: 10%);
+    background-color: white;
+    transition: 0.3s all;
 
     .diamond {
+      background-color: $theme;
       &::after,
       &::before {
-        background-color: lighten($color: $theme, $amount: 10%);
+        // background-color: lighten($color: $theme, $amount: 10%);
+        background-color: white;
       }
     }
   }

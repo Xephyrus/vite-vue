@@ -90,6 +90,7 @@ export default defineComponent({
       return isToday
     }
 
+    // 某一天的样式
     const dayStyle = computed(() => ({
       textAlign: options.viewStyle.day
     }))

@@ -88,6 +88,7 @@ export default {
   -moz-transform: rotate($deg);
   transform: rotate($deg);
 }
+
 .container {
   font-size: 10px;
   .clock {
@@ -108,25 +109,31 @@ export default {
       width: 100%;
       height: 100%;
       border-radius: 100%;
+
       &::after {
         @include outFace(#58e3dd);
         @include rotate(90deg);
       }
+
       &::before {
         @include outFace(#58e3dd);
       }
 
       .marking {
         @include outFace(#eee);
+
         &:nth-child(1) {
           @include rotate(30deg);
         }
+
         &:nth-child(2) {
           @include rotate(60deg);
         }
+
         &:nth-child(3) {
           @include rotate(120deg);
         }
+
         &:nth-child(4) {
           @include rotate(150deg);
         }
@@ -176,12 +183,14 @@ export default {
           width: 30%;
           z-index: 3;
         }
+
         &[data-name='minute'] {
           height: 3px;
           margin-top: -1.5px;
           z-index: 10;
           width: 40%;
         }
+
         &[data-name='second'] {
           background: #ee791a;
           width: 45%;

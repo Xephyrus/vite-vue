@@ -6,10 +6,6 @@
   </div>
 </template>
 
-<script>
-export default {}
-</script>
-
 <style lang="scss" scoped>
 .masonry {
   column-count: 4;
@@ -19,11 +15,17 @@ export default {}
     padding: 2px;
     position: relative;
     counter-increment: item-counter;
+    overflow: hidden;
 
     img {
       display: block;
       width: 100%;
       height: auto;
+      transition: all .5s ease-in-out;
+    }
+
+    &:hover img {
+      transform: scale(1.5) rotate(-15deg);
     }
 
     &::after {

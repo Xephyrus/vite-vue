@@ -1,11 +1,7 @@
 <template>
   <div class="dashboard">
     <div class="main">
-      <span
-        v-for="i in 100"
-        :key="i"
-        :style="dash(i)"
-      ></span>
+      <span v-for="i in 100" :key="i" :style="dash(i)"></span>
     </div>
     <p class="pc">{{ value }} %</p>
     <input type="range" :style="{ backgroundSize: value + '% 100%' }" v-model="value" />
@@ -13,11 +9,11 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, computed } from 'vue'
+import { ref, defineComponent, onMounted } from 'vue'
 export default defineComponent({
   name: 'Dashboard',
   setup(props) {
-    const value = ref<number>(0)
+    const value = ref<number>(30)
     const dash = (n: number) => {
       let i = n - 1
       let style: any = {}
@@ -31,6 +27,21 @@ export default defineComponent({
       style['--degree'] = (i / 100) * 360 + 'deg'
       return style
     }
+
+    onMounted(() => {
+      setInterval(() => {
+        let random = Math.random() * 20 - 10
+        // console.log(random)
+        value.value += Math.round(random)
+        if (value.value >= 100) {
+          value.value = 100
+        }
+        if (value.value <= 0) {
+          value.value = 0
+        }
+      }, 500)
+    })
+
     return { value, dash }
   }
 })

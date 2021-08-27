@@ -4,10 +4,6 @@
   </div>
 </template>
 
-<script>
-export default {}
-</script>
-
 <style lang="scss" scoped>
 $red: #ea4355;
 $yellow: #fbb605;
@@ -20,6 +16,7 @@ $dark: #262626;
   display: flex;
   align-items: center;
   background-color: #fff;
+
   .google {
     font-size: 10px;
     width: 13em;
@@ -33,7 +30,6 @@ $dark: #262626;
 
     &::before {
       content: '';
-      // display: block;
       position: absolute;
       top: -15.5em;
       right: -15.5em;
@@ -43,6 +39,7 @@ $dark: #262626;
       border-left: 10em solid transparent;
       transform: rotate(90deg);
     }
+
     &::after {
       content: '';
       position: absolute;
@@ -51,7 +48,7 @@ $dark: #262626;
       height: 4.5em;
       width: 11.5em;
       background-color: $blue;
-      transform: translate(-0.5em, -2.0em);
+      transform: translate(-0.5em, -2em);
     }
   }
 }

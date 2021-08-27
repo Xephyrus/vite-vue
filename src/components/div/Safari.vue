@@ -44,6 +44,7 @@
         --h: 0.9em;
         --y: 6em;
       }
+
       &:nth-child(even) {
         --h: 0.5em;
         --y: 6.2em;

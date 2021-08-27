@@ -25,6 +25,26 @@ $pixiels: (4, 8, 12, 16, 20, 24, 28, 32, 40, 60);
     padding: 16px;
   }
 }
+
+// 按需构造宽度样式
+$widthList: (
+  20: 20px,
+  40: 40px,
+  60: 60px,
+  80: 80px,
+  100: 100px,
+  160: 160px,
+  200: 200px,
+  300: 300px,
+  400: 400px
+);
+
+@each $num, $width in $widthList {
+  .width-#{$num} {
+    width: $width;
+  }
+}
+
 /** 定义需要遍历的对象 */
 $marAndPadAndFontList: (
   4: 4px,

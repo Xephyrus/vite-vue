@@ -2,9 +2,14 @@
   <div class="home">
     <process-bar :config="config1"></process-bar>
     <process-bar ref="abnormal" :config="config"></process-bar>
-    <el-input v-model="params.ref"></el-input>
-    <el-button @click="showLoading">loading</el-button>
-    <el-button @click="addTen" type="primary">+10</el-button>
+    <div class="mb-20">
+      <el-input v-model="params.ref" class="width-200"></el-input>
+      <el-button @click="showLoading">loading</el-button>
+      <el-button @click="addTen" type="primary">+10</el-button>
+    </div>
+    <div class="bg-dark">
+      <scanning></scanning>
+    </div>
     <div class="bg-dark flex-between mb-20">
       <radar></radar>
       <google></google>
@@ -54,6 +59,7 @@ import Drops from '../components/div/Drops.vue'
 import Dashboard from '../components/Dashboard.vue'
 import Radar from '../components/div/Radar.vue'
 import Google from '../components/div/Google.vue'
+import Scanning from '../components/div/Scanning.vue'
 
 export default defineComponent({
   name: 'Home',
@@ -71,7 +77,8 @@ export default defineComponent({
     Drops,
     Dashboard,
     Radar,
-    Google
+    Google,
+    Scanning
   },
   setup(props) {
     const abnormal: any = ref(null)

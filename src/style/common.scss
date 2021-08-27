@@ -1,6 +1,7 @@
-
 // 做一个标识, 不要影响所有的svg
-.icon path { fill: inherit important }
+.icon path {
+  fill: inherit;
+}
 
 /* 修改 滚动条 下面 的 宽度 */
 .scroll {
@@ -31,15 +32,27 @@
 .clear:after {
   display: block;
   height: 0;
-  content: "";
-  clear: both
+  content: '';
+  clear: both;
 }
 
 .flex-between {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .half {
   width: 50%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
 }

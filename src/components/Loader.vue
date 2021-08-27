@@ -36,12 +36,14 @@
   top: 0;
   background: rgba($color: #000000, $alpha: 0.8);
   animation: animateBg 10s linear infinite;
+
   &-box {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+
     .loader {
       width: 120px;
       height: 120px;

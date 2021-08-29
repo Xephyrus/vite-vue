@@ -16,7 +16,6 @@
     </div>
     <div class="bg-dark flex-between mb-20">
       <jue-jin></jue-jin>
-      <!-- <drops></drops> -->
       <dashboard></dashboard>
     </div>
     <div class="bg-white">
@@ -55,7 +54,6 @@ import Skeleton from '../components/div/Skeleton.vue'
 import Masonry from '../components/div/Masonry.vue'
 import Cube from '../components/div/Cube.vue'
 import JueJin from '../components/div/JueJin.vue'
-import Drops from '../components/div/Drops.vue'
 import Dashboard from '../components/Dashboard.vue'
 import Radar from '../components/div/Radar.vue'
 import Google from '../components/div/Google.vue'
@@ -74,7 +72,6 @@ export default defineComponent({
     Masonry,
     Cube,
     JueJin,
-    Drops,
     Dashboard,
     Radar,
     Google,

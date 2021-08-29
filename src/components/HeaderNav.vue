@@ -11,6 +11,9 @@
         <div class="nav-item">
           <router-link :to="'/axios'">Axios</router-link>
         </div>
+        <div class="nav-item">
+          <router-link :to="'/demo'">Demo</router-link>
+        </div>
       </nav>
     </div>
   </div>

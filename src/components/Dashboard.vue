@@ -4,7 +4,7 @@
       <span v-for="i in 100" :key="i" :style="dash(i)"></span>
     </div>
     <p class="pc">{{ value }} %</p>
-    <input type="range" :style="{ backgroundSize: value + '% 100%' }" v-model="value" />
+    <input disabled type="range" :style="{ backgroundSize: value + '% 100%' }" v-model="value" />
   </div>
 </template>
 

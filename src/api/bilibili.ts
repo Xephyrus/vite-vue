@@ -22,3 +22,18 @@ export const getSearchDefault = () => {
     method: 'get'
   })
 }
+
+/*
+mid: 用户uid, jsonp: 是否使用jsonp
+*/
+interface Info {
+  mid?: string | number
+  jsonp?: string
+}
+export const getUserInfo = (data: Info) => {
+  return axios({
+    url: '/api/space/acc/info',
+    method: 'get',
+    params: data
+  })
+}

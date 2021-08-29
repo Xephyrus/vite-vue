@@ -64,7 +64,7 @@ export default defineComponent({
 .axios {
   main {
     .search-list {
-
+      display: flex;
     }
   }
 }

@@ -42,6 +42,18 @@
             <div class="love"></div>
           </div>
         </div>
+
+        <div class="logo" icon="krea">
+          <div class="krea">
+            <div class="hexagon hexagon--1"></div>
+            <div class="hexagon hexagon--2"></div>
+            <div class="hexagon hexagon--3"></div>
+            <div class="hexagon hexagon--4"></div>
+            <div class="shadow shadow--1"></div>
+            <div class="shadow shadow--2"></div>
+            <div class="shadow shadow--3"></div>
+          </div>
+        </div>
       </div>
       <!-- <ul class="search-list">
         <li v-for="(url, index) in list" :key="index" class="search-list-item">
@@ -67,7 +79,8 @@ export default defineComponent({
     const list = computed<any[]>(() => state.result)
 
     onMounted(() => {
-      const [list, online, defaults]: any[] = [
+      console.log(getSearchDefault())
+      const [list, online, defaults]: Promise<any>[] = [
         getSearchList({ keyword: '高达', search_type: 'video' }),
         getOnlineList(),
         getSearchDefault()
@@ -85,15 +98,6 @@ export default defineComponent({
           reverse)
         */
         state.result = a.data.data.result.map((item: any) => item.pic) // 直接赋值不会触发
-        console.log(state.result)
-        const img = new Image()
-        img.src = 'https://img-bss.csdn.net/1629341824095.png'
-        img.onload = () => {
-          let { width, height } = img
-          let ratio = width / height
-          img.dataset.ratio = ratio.toString()
-          console.log(img)
-        }
       })
     })
 
@@ -312,6 +316,72 @@ export default defineComponent({
           left: 0px;
           bottom: -18px;
           transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &[icon='krea'] {
+    box-shadow: -10px 10px 10px #ababab;
+
+    .krea {
+      width: 160px;
+      height: 160px;
+      position: relative;
+      // background-color: #eee;
+
+      .hexagon {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+
+        &--1 {
+          clip-path: polygon(0 0, 50% 0, 100% 50%, 100% 100%, 50% 100%, 0 50%);
+          background: #ed207b;
+          top: 40px;
+        }
+
+        &--2 {
+          clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 100%, 0 100%, 0 50%);
+          background: #ed207b;
+          right: 0;
+        }
+
+        &--3 {
+          clip-path: polygon(0 0, 50% 0, 100% 50%, 100% 100%, 50% 100%, 0 50%);
+          background: #00adef;
+          top: 80px;
+          left: 40px;
+        }
+      }
+
+      .shadow {
+        position: absolute;
+        z-index: 2;
+        background: rgba(1, 2, 8, 0.26);
+
+        &--1 {
+          width: 80px;
+          height: 40px;
+          top: 40px;
+          left: 40px;
+          clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        &--2 {
+          width: 40px;
+          height: 40px;
+          background: #1f2563;
+          top: 80px;
+          left: 40px;
+        }
+
+        &--3 {
+          width: 80px;
+          height: 80px;
+          top: 80px;
+          left: 80px;
+          clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 100%);
         }
       }
     }

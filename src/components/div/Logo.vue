@@ -300,6 +300,7 @@ $body-2: lighten($body, 20%);
   &::after {
     @include ellipse($color1);
     bottom: -23px;
+    transition: .5s;
   }
 }
 @mixin message() {
@@ -414,6 +415,10 @@ $body-2: lighten($body, 20%);
   .ae {
     &:hover {
       @include mainAreaHover($ae-4);
+
+      .cylinder--3::after {
+        @include mainAreaHover($ae-5);
+      }
     }
     @extend .doc;
     padding-bottom: 40px;
@@ -631,16 +636,14 @@ $body-2: lighten($body, 20%);
     &:hover {
       .layer {
         transform: rotate(180deg);
-        transition: 0.3s all;
+        transition: 0.5s all;
         &-left {
           left: 50%;
           top: 50%;
-          transition: 0.3s all;
         }
         &-right {
           right: 50%;
           bottom: 50%;
-          transition: 0.3s all;
         }
       }
     }
@@ -666,7 +669,7 @@ $body-2: lighten($body, 20%);
       background: $ex-1;
       border-radius: 10px;
       clip-path: polygon(65% 0, 100% 0, 100% 35%, 35% 100%, 0 100%, 0 65%);
-      transition: 0.3s all;
+      transition: 0.5s all;
 
       &-left {
         width: 50%;
@@ -677,7 +680,7 @@ $body-2: lighten($body, 20%);
         left: 0;
         top: 0;
         clip-path: polygon(0 0, 70% 0, 100% 30%, 100% 100%, 30% 100%, 0 70%);
-        transition: 0.3s all;
+        transition: 0.5s all;
       }
 
       &-right {
@@ -688,8 +691,8 @@ $body-2: lighten($body, 20%);
         border-radius: 10px;
         right: 0;
         bottom: 0;
+        transition: 0.5s all;
         clip-path: polygon(0 0, 70% 0, 100% 30%, 100% 100%, 30% 100%, 0 70%);
-        transition: 0.3s all;
       }
     }
   }
@@ -703,7 +706,7 @@ $body-2: lighten($body, 20%);
         left: 65px;
         top: -6.5px;
         z-index: 0;
-        transition: 0.3s all;
+        transition: 0.5s all;
 
         .man {
           transform: scale(0.7);
@@ -714,7 +717,7 @@ $body-2: lighten($body, 20%);
         left: 0;
         top: 0;
         z-index: 1;
-        transition: 0.3s all;
+        transition: 0.5s all;
 
         .man {
           transform: scale(1);
@@ -736,7 +739,7 @@ $body-2: lighten($body, 20%);
       position: absolute;
       height: 100%;
       z-index: 1;
-      transition: 0.3s all;
+      transition: 0.5s all;
 
       .man {
         width: 100px;
@@ -786,6 +789,20 @@ $body-2: lighten($body, 20%);
     @include mainArea();
     background: transparent;
 
+    &:hover {
+      .round {
+        &--1 {
+          @include mainAreaHover($sp-1);
+        }
+        &--2 {
+          @include mainAreaHover($sp-2);
+        }
+        &--3 {
+          @include mainAreaHover($sp-3);
+        }
+      }
+    }
+
     .share-point {
       @include textShadow(#028485, #018486);
       z-index: 4;
@@ -801,6 +818,7 @@ $body-2: lighten($body, 20%);
       position: absolute;
       border-radius: 50%;
       z-index: var(--i);
+      transition: 0.5s;
 
       &--1 {
         width: 112.5px;
@@ -830,6 +848,20 @@ $body-2: lighten($body, 20%);
     @include mainArea();
     background: transparent;
 
+    &:hover {
+      .figure {
+        &--1 {
+          @include mainAreaHover($vs-1);
+        }
+        &--2 {
+          @include mainAreaHover($vs-2);
+        }
+        &--3 {
+          @include mainAreaHover($vs-3);
+        }
+      }
+    }
+
     .visio {
       @include textShadow(#1f69be, #1248ac);
       z-index: 4;
@@ -844,6 +876,7 @@ $body-2: lighten($body, 20%);
     .figure {
       position: absolute;
       z-index: var(--i);
+      transition: 0.5s;
 
       &--1 {
         width: 70px;
@@ -1031,7 +1064,8 @@ $body-2: lighten($body, 20%);
     justify-content: center;
 
     &:hover {
-      .skype, .layer {
+      .skype,
+      .layer {
         @include mainAreaHover(#007dd6);
       }
     }
@@ -1042,7 +1076,7 @@ $body-2: lighten($body, 20%);
       border-radius: 50%;
       background: linear-gradient(to bottom, #00b6ef, #007dd6);
       z-index: 2;
-      transition: .5s;
+      transition: 0.5s;
 
       &::before {
         content: 'S';
@@ -1062,7 +1096,7 @@ $body-2: lighten($body, 20%);
       border-radius: 50%;
       background: linear-gradient(to bottom, #00b6ef, #007dd6);
       position: absolute;
-      transition: .5s;
+      transition: 0.5s;
 
       &--1 {
         left: 4%;
@@ -1080,10 +1114,35 @@ $body-2: lighten($body, 20%);
     @include mainArea();
     background: transparent;
 
+    &:hover {
+      .layer {
+        &--1 {
+          transform: rotate(0);
+          &::before {
+            transform: skewY(0deg);
+          }
+        }
+
+        &--2 {
+          transform: rotate(45deg);
+          &::before {
+            transform: skewY(0deg);
+          }
+        }
+
+        &--3 {
+          transform: rotate(90deg);
+          &::before {
+            transform: skewY(0deg);
+          }
+        }
+      }
+    }
+
     .yammer {
       @include textShadow($yammer-letter, $yammer-letter);
       &::before {
-        @include text('S');
+        @include text('Y');
         height: 26%;
         left: 32%;
       }
@@ -1095,11 +1154,11 @@ $body-2: lighten($body, 20%);
       bottom: 50%;
       transform-origin: 0% 100%;
       overflow: hidden;
-
       width: var(--size);
       height: var(--size);
       border-radius: 0 100% 0 0;
       transform: rotate(var(--deg));
+      transition: 0.5s all;
 
       &::before {
         content: '';
@@ -1111,6 +1170,7 @@ $body-2: lighten($body, 20%);
         transform-origin: 0% 100%;
         position: absolute;
         transform: skewY(-60deg);
+        transition: 0.5s all;
       }
 
       &--1::before {

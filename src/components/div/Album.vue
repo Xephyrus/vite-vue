@@ -3,7 +3,7 @@
     <span
       v-for="(item, i) in list"
       :key="i"
-      :style="{ '--i': i * 45 + 'deg', '--c': item.color }"
+      :style="{ '--i': 45 * i + 'deg', '--c': item.color }"
     ></span>
   </figure>
 </template>
@@ -12,7 +12,13 @@
 import { ref } from 'vue'
 
 export default {
-  setup(props) {
+  props:{
+    size: {
+      type: [String, Number],
+      default: 10
+    }
+  },
+  setup(props: any) {
     const list = ref<any[]>([
       {
         color: 'rgba(243, 156, 18, .7)'

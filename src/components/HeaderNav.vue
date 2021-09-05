@@ -14,6 +14,15 @@
         <div class="nav-item">
           <router-link :to="'/demo'">Demo</router-link>
         </div>
+        <div class="nav-item">
+          <router-link :to="'/detail/33401891/doc'">DOC</router-link>
+        </div>
+        <div class="nav-item">
+          <router-link :to="'/detail/33401891/ppt'">PPT</router-link>
+        </div>
+        <div class="nav-item">
+          <router-link :to="'/detail/33401891/xls'">XLS</router-link>
+        </div>
       </nav>
     </div>
   </div>

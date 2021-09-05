@@ -9,6 +9,8 @@
       <browser></browser>
       <camera></camera>
       <pics></pics>
+      <chrome></chrome>
+      <game></game>
     </div>
     <div class="bg-light flex-between">
       <triangle></triangle>
@@ -21,8 +23,10 @@
 </template>
 
 <script lang="ts">
+import Chrome from '@/components/div/Chrome.vue'
 import Pics from '@/components/div/Pics.vue'
 import Triangle from '@/components/geometry/triangle.vue'
+import Game from '@/components/svg/game.vue'
 import SvgTriangle from '@/components/svg/triangle.vue'
 import { defineComponent, ref } from 'vue'
 import Breeno from '../components/div/Breeno.vue'
@@ -43,7 +47,9 @@ export default defineComponent({
     Camera,
     Triangle,
     SvgTriangle,
-    Pics
+    Pics,
+    Chrome,
+    Game
   },
   setup(props) {
     const n = ref(0)

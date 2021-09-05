@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <store></store>
     <process-bar :config="config1"></process-bar>
     <process-bar ref="abnormal" :config="config"></process-bar>
     <div class="mb-20">

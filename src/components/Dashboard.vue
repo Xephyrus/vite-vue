@@ -18,13 +18,13 @@ export default defineComponent({
       let i = n - 1
       let style: any = {}
       if (i < value.value) {
-        style['--bg'] = 'hsl(' + (i / 100) * 360 + ', 100%, 50%)'
-        style['--sg'] = 'hsl(' + (i / 100) * 360 + ', 100%, 50%)'
+        style['--bg'] = 'hsl(' + 360 * (i / 100) + ', 100%, 50%)'
+        style['--sg'] = 'hsl(' + 360 * (i / 100) + ', 100%, 50%)'
       } else {
         style['--bg'] = 'black'
         style['--sg'] = 'transparent'
       }
-      style['--degree'] = (i / 100) * 360 + 'deg'
+      style['--degree'] = 360 * (i / 100) + 'deg'
       return style
     }
 

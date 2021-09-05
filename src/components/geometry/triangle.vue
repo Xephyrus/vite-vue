@@ -5,12 +5,11 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
 export default {
   props: {
     size: {
       type: [String, Number],
-      default: '10'
+      default: 10
     },
     bgColor: {
       type: String,
@@ -27,7 +26,7 @@ export default {
 @mixin common {
   width: 10em;
   height: 10em;
-  border-top-right-radius: 30%;
+  border-top-right-radius: 20%;
   background: v-bind(bgColor);
 }
 
@@ -57,17 +56,5 @@ export default {
     @include common();
     transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(100%, 50%);
   }
-
-//   &:hover {
-//     background: rgba(0, 0, 255, 0.5);
-
-//     &::before {
-//       background: rgba(255, 0, 0, 0.5);
-//     }
-
-//     &::after {
-//       background: rgba(255, 255, 0, 0.5);
-//     }
-//   }
 }
 </style>

@@ -6,7 +6,14 @@
       @handleToday="handleToday"
     />
     <ul class="calendar-week">
-      <li v-for="(item, index) in calendarTitleArr" :key="index" class="week-item" :class="{weekend: [0, 6].includes(index) }">{{ item }}</li>
+      <li
+        v-for="(item, index) in calendarTitleArr"
+        :key="index"
+        class="week-item"
+        :class="{ weekend: [0, 6].includes(index) }"
+      >
+        {{ item }}
+      </li>
     </ul>
     <ul class="calendar-view">
       <li
@@ -98,12 +105,14 @@ export default defineComponent({
     const initIndex = () => {
       let { year, month, day } = getNewDate(getDate(state.time.year, state.time.month, 1))
       let currentFirstDay: any = getDate(year, month, 1)
+      let back: number = currentFirstDay.getDay() - 1
       let weekDay = currentFirstDay.getDay()
       let startTime = currentFirstDay - weekDay * 24 * 60 * 60 * 100
       let monthDayNum: number = [5, 6].includes(weekDay) ? 42 : 35
       for (let i = 0; i < monthDayNum; i++) {
         if (isCurrentDay(new Date(startTime + i * 24 * 60 * 60 * 1000), i)) {
-          state.curIndex = i
+          console.log(i)
+          state.curIndex = i + back
           return
         }
       }
@@ -127,7 +136,6 @@ export default defineComponent({
           ...lunarDate(startTime + i * 24 * 60 * 60 * 1000),
           clickDay: i === state.curIndex
         })
-        // console.log(lunarDate(startTime + i * 24 * 60 * 60 * 1000))
       }
 
       if (state.curIndex < 0) {
@@ -164,6 +172,7 @@ export default defineComponent({
       initIndex()
       state.calendarList = visibleCalendar
       state.calendarType = options.calendarType
+      // handleToday()
     })
 
     return {

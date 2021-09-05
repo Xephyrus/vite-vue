@@ -1,7 +1,7 @@
 <template>
   <figure class="safari">
     <div class="marks">
-      <span v-for="i in 60" :key="i" :style="{ '--rotate-deg': i * 6 - 6 + 'deg' }"></span>
+      <span v-for="i in 60" :key="i" :style="{ '--rotate-deg': 6 * i - 6 + 'deg' }"></span>
     </div>
     <div class="pointer"></div>
   </figure>

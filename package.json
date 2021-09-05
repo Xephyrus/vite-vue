@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit --skipLibCheck && vite build",
     "serve": "vite preview"
   },
   "dependencies": {
@@ -11,7 +11,7 @@
     "@ionic/vue": "^5.6.14",
     "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.71",
-    "ionicons": "^4.5.9-1",
+    "ionicons": "^4.6.3",
     "node-sass": "^6.0.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",
@@ -20,12 +20,12 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@types/node": "^16.7.2",
+    "@types/node": "^16.7.6",
     "@types/webpack-env": "^1.16.2",
     "@vitejs/plugin-vue": "^1.6.0",
     "@vue/compiler-sfc": "^3.2.6",
     "fs": "^0.0.1-security",
-    "sass": "^1.38.1",
+    "sass": "^1.38.2",
     "svg-sprite-loader": "^6.0.9",
     "typescript": "^4.4.2",
     "vite": "^2.5.1",

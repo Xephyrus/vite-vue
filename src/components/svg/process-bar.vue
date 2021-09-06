@@ -13,7 +13,7 @@
         </filter>
       </defs>
       <svg viewBox="0 0 100 100">
-        <text x="50" y="50" class="center" :fill="config.textColor">{{ config.percentage }} %</text>
+        <text x="50" y="50" class="center" :fill="config.textColor" style="dominant-baseline: middle;">{{ config.percentage }} %</text>
         <defs>
           <linearGradient :id="config.gradientId" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop
@@ -121,7 +121,6 @@ export default {
   .center {
     text-anchor: middle;
     /* 文本水平居中 */
-    dominant-baseline: middle;
     font-size: 14px;
     /* 文本垂直居中 */
   }

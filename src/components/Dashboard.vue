@@ -4,7 +4,7 @@
       <span v-for="i in 100" :key="i" :style="dash(i)"></span>
     </div>
     <p class="pc">{{ value }} %</p>
-    <input disabled type="range" :style="{ backgroundSize: value + '% 100%' }" v-model="value" />
+    <input type="range" :style="{ backgroundSize: value + '% 100%' }" v-model="value" />
   </div>
 </template>
 
@@ -29,17 +29,16 @@ export default defineComponent({
     }
 
     onMounted(() => {
-      setInterval(() => {
-        let random = Math.random() * 20 - 10
-        // console.log(random)
-        value.value += Math.round(random)
-        if (value.value >= 100) {
-          value.value = 100
-        }
-        if (value.value <= 0) {
-          value.value = 0
-        }
-      }, 500)
+      // setInterval(() => {
+      //   let random = Math.random() * 20 - 10
+      //   value.value += Math.round(random)
+      //   if (value.value >= 100) {
+      //     value.value = 100
+      //   }
+      //   if (value.value <= 0) {
+      //     value.value = 0
+      //   }
+      // }, 500)
     })
 
     return { value, dash }
@@ -48,7 +47,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-$progress: #1e90ff;
+$progress: #1e9aff;
 .dashboard {
   font-size: 6px;
   width: 50em;
@@ -90,7 +89,7 @@ $progress: #1e90ff;
     width: 40em;
     height: 1em;
     appearance: none;
-    background: linear-gradient($progress, $progress) no-repeat, black;
+    background: linear-gradient(45deg, #6c5bff, #8ac7ff) no-repeat, #e5ecfc;
     background-size: 0 100%;
     border-radius: 0.5em;
 
@@ -101,14 +100,16 @@ $progress: #1e90ff;
       height: 2em;
       background: $progress;
       border-radius: 50%;
-      box-shadow: 0 0 1em white, 0 0 2em white;
+      box-shadow: 0 0 1em lighten($color: $progress, $amount: 10%), 0 0 2em lighten($color: $progress, $amount: 10%);
+      background: radial-gradient(#1a85ff 0%, #1a85ff 40%, #32a3ff 60% , #91cbfd 100% );
+      // border: 3px solid #77c0ff;
     }
   }
   .pc {
     color: white;
     font-size: 6em;
     font-family: Arial, Helvetica, sans-serif;
-    text-shadow: 0.2vw 0.2vw 0 gray, 0 0 1vw #1e90ff, 0 0 2vw #1e90ff, 0 0 4vw #1e90ff;
+    // text-shadow: 0.2vw 0.2vw 0 gray, 0 0 1vw #1e90ff, 0 0 2vw #1e90ff, 0 0 4vw #1e90ff;
   }
 }
 </style>

@@ -39,13 +39,12 @@ export default defineComponent({
       userParams: {
         mid: 0,
         jsonp: 'jsonp'
+      },
+      componentMap: {
+        doc: 'Magnifier',
+        ppt: 'Browser',
+        xls: 'Camera'
       }
-    })
-
-    const componentMap = ref({
-      doc: 'Magnifier',
-      ppt: 'Browser',
-      xls: 'Camera'
     })
 
     const componentId = ref(route.params.type)
@@ -65,11 +64,9 @@ export default defineComponent({
       router.push({ name: 'Detail', params: { id: '12333', type: 'doc' } })
     }
 
-    return { ...state, componentId, componentMap, go }
+    return { ...state, componentId, go }
   }
 })
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

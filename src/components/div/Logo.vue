@@ -300,7 +300,7 @@ $body-2: lighten($body, 20%);
   &::after {
     @include ellipse($color1);
     bottom: -23px;
-    transition: .5s;
+    transition: 0.5s;
   }
 }
 @mixin message() {
@@ -1116,6 +1116,8 @@ $body-2: lighten($body, 20%);
 
     &:hover {
       .layer {
+        @include mainAreaHover(#007dd6);
+        transition: transform 0.5s, box-shadow 0.2s linear 0.2s;
         &--1 {
           transform: rotate(0);
           &::before {
@@ -1158,7 +1160,6 @@ $body-2: lighten($body, 20%);
       height: var(--size);
       border-radius: 0 100% 0 0;
       transform: rotate(var(--deg));
-      transition: 0.5s all;
 
       &::before {
         content: '';
@@ -1170,7 +1171,6 @@ $body-2: lighten($body, 20%);
         transform-origin: 0% 100%;
         position: absolute;
         transform: skewY(-60deg);
-        transition: 0.5s all;
       }
 
       &--1::before {

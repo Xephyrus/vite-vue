@@ -1,5 +1,37 @@
 <template>
   <div class="home">
+    <el-carousel direction="vertical" :autoplay="false">
+      <el-carousel-item v-for="i in 38" :key="i">
+        <img
+          class="bg-image"
+          :src="`https://consumer.huawei.com/content/dam/huawei-cbg-site/greate-china/cn/mkt/pdp/phones/mate-x2/img/performance/wallpaper/${(
+            i - 1
+          )
+            .toString()
+            .padStart(4, '0')}.webp`"
+          alt=""
+        />
+      </el-carousel-item>
+    </el-carousel>
+    <div class="bg flex mb-40">
+      <animate-icon
+        v-for="(item, index) in iconList"
+        :key="index"
+        v-bind="item"
+        class="icon"
+      ></animate-icon>
+      <ali-icon
+        v-for="(item, index) in aliIcons"
+        :key="index"
+        v-bind="item"
+        class="icon"
+      ></ali-icon>
+      <div class="tpm-solution__summary">
+        <div class="tpm-solution__summary-ani"></div>
+      </div>
+      <astronaut></astronaut>
+    </div>
+    <div class="bg"></div>
     <process-bar :config="config1"></process-bar>
     <process-bar ref="abnormal" :config="config"></process-bar>
     <div class="mb-20">
@@ -58,6 +90,9 @@ import Dashboard from '../components/Dashboard.vue'
 import Radar from '../components/div/Radar.vue'
 import Google from '../components/div/Google.vue'
 import Scanning from '../components/div/Scanning.vue'
+import AnimateIcon from '@/components/AnimateIcon.vue'
+import Astronaut from '@/components/Astronaut.vue'
+import AliIcon from '@/components/AliIcon.vue'
 
 export default defineComponent({
   name: 'Home',
@@ -75,9 +110,12 @@ export default defineComponent({
     Dashboard,
     Radar,
     Google,
-    Scanning
+    Scanning,
+    AnimateIcon,
+    Astronaut,
+    AliIcon
   },
-  setup(props) {
+  setup(props, AnimateIcon) {
     const abnormal: any = ref(null)
     const refData = reactive({
       config: {
@@ -98,7 +136,81 @@ export default defineComponent({
       },
       params: {
         ref: 3
-      }
+      },
+      iconList: [
+        { icon: 'ani-hot', text: '热门推荐' },
+        { icon: 'ani-base', text: '计算' },
+        { icon: 'ani-middleware', text: '容器与中间件' },
+        { icon: 'ani-storage', text: '存储' },
+        { icon: 'ani-database', text: '数据库' },
+        { icon: 'ani-net', text: '网络与CDN' },
+        { icon: 'ani-video', text: '视频服务' },
+        { icon: 'ani-safe', text: '安全' },
+        { icon: 'ani-big-data', text: '大数据' },
+        { icon: 'ani-ai', text: 'AI' },
+        { icon: 'ani-iot', text: '物联网' },
+        { icon: 'ani-app', text: '企业应用与云通信' },
+        { icon: 'ani-industry', text: '行业应用' },
+        { icon: 'ani-developer', text: '开发者服务' }
+      ],
+      aliIcons: [
+        {
+          icon: 'ali-hot',
+          title: '热门产品'
+        },
+        {
+          icon: 'ali-compute',
+          title: '弹性计算'
+        },
+        {
+          icon: 'ali-storage',
+          title: '存储'
+        },
+        {
+          icon: 'ali-db',
+          title: '数据库'
+        },
+        {
+          icon: 'ali-safety',
+          title: '安全'
+        },
+        {
+          icon: 'ali-big-data',
+          title: '大数据'
+        },
+        {
+          icon: 'ali-ai',
+          title: '人工智能'
+        },
+        {
+          icon: 'ali-net&cdn',
+          title: '网络与CDN'
+        },
+        {
+          icon: 'ali-video',
+          title: '视频服务'
+        },
+        {
+          icon: 'ali-middleware',
+          title: '容器与中间件'
+        },
+        {
+          icon: 'ali-developer',
+          title: '开发与运维'
+        },
+        {
+          icon: 'ali-iot',
+          title: '物联网IoT'
+        },
+        {
+          icon: 'ali-mix-cloud',
+          title: '混合云'
+        },
+        {
+          icon: 'ali-app',
+          title: '企业应用与云通信'
+        }
+      ]
     })
 
     const addTen = () => {
@@ -117,10 +229,6 @@ export default defineComponent({
       }, refData.params.ref * 1000)
     }
 
-    // onBeforeUnmount(() => {
-    //   Bus.$off('loading')
-    // })
-
     return {
       ...refData,
       abnormal,
@@ -133,4 +241,88 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import '../style/mixin.scss';
+
+@keyframes animate {
+  0% {
+    background-position: 0 8208px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 40px;
+
+  .tpm-solution__summary {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 400px;
+    height: 462px;
+    border: 10px solid #242933;
+    background: #242933;
+    box-shadow: 8px 8px 20px 0 rgb(18 21 26 / 60%), -8px -8px 20px 0 rgb(54 62 77 / 50%),
+      inset 0 4px 20px 0 rgb(36 41 51 / 50%);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: 100% 100%;
+      background-size: 250px auto;
+      background-image: url('@/assets/images/ani/bg-backc58.png');
+    }
+
+    .tpm-solution__summary-ani {
+      position: absolute;
+      right: 0;
+      bottom: 90px;
+      width: 215px;
+      height: 216px;
+      background-image: url('@/assets/images/ani/ani-spriteeef.png');
+      background-size: 100% auto;
+      background-position: top;
+
+      &:hover {
+        animation: animate 1s steps(38) forwards;
+      }
+    }
+  }
+  .icon {
+    margin-bottom: 40px;
+  }
+}
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 18px;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
 </style>

@@ -3,7 +3,6 @@ import Home from '@/views/home.vue'
 import Vuex from '@/views/vuex.vue'
 import Demo from '@/views/demo.vue'
 import NotFound from '@/views/notFound.vue'
-import { toTop } from '../utils/tools'
 
 const routes: Array<RouteRecordRaw> = [
   {

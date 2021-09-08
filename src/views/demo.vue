@@ -1,7 +1,5 @@
 <template>
   <div class="demo">
-    <div>{{ n }}</div>
-    <el-button @click="addOne">Click</el-button>
     <div class="bg-dark flex-between">
       <wallet></wallet>
       <cloud></cloud>

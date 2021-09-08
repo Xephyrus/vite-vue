@@ -45,7 +45,7 @@
 
 <script lang="ts">
 import CalendarHeader from './calendar-header.vue'
-import { getNewDate, getDate, englishMonth, formatDate } from '../../utils/calendar'
+import { getNewDate, getDate, englishMonth } from '../../utils/calendar'
 import lunarDate from '../../utils/lunar-calendar'
 import { ref, defineComponent, reactive, computed, onBeforeMount } from 'vue'
 export default defineComponent({
@@ -111,7 +111,6 @@ export default defineComponent({
       let monthDayNum: number = [5, 6].includes(weekDay) ? 42 : 35
       for (let i = 0; i < monthDayNum; i++) {
         if (isCurrentDay(new Date(startTime + i * 24 * 60 * 60 * 1000), i)) {
-          console.log(i)
           state.curIndex = i + back
           return
         }

@@ -68,6 +68,7 @@
 import Logo from '@/components/div/Logo.vue'
 import { defineComponent, onMounted, reactive, computed } from 'vue'
 import { getSearchList, getOnlineList, getSearchDefault } from '../api/bilibili'
+import { getMessage } from '@/api/local'
 
 export default defineComponent({
   components: { Logo },
@@ -79,15 +80,17 @@ export default defineComponent({
     const list = computed<any[]>(() => state.result)
 
     onMounted(() => {
-      console.log(getSearchDefault())
       const [list, online, defaults]: Promise<any>[] = [
         getSearchList({ keyword: '高达', search_type: 'video' }),
         getOnlineList(),
         getSearchDefault()
       ]
+      // console.log(111)
+      // getMessage().then((res: any) => {
+      //   console.log(res)
+      // })
       Promise.all([list, online, defaults]).then((res: any[]) => {
         const [a, b, c] = res
-        console.log(a.data.data)
         /*Vue只能使用如下数组方法，才能响应式更新视图：
           (push
           pop
@@ -116,7 +119,7 @@ export default defineComponent({
 .axios {
   main {
     .para {
-      font-size: 24px;
+      font-size: 36px;
 
       &.test {
         font-family: test;

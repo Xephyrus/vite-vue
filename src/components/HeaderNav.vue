@@ -77,9 +77,27 @@ export default {
           line-height: 60px;
           color: $text-gray;
           font-size: 14px;
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            transition: all 0.3s ease;
+            width: 0;
+            left: 50%;
+            bottom: 0;
+            border-bottom: 2px solid $primary;
+          }
 
           &.is-active {
             color: $primary;
+
+            &::before {
+              width: 100%;
+              left: 0;
+              bottom: 0;
+              border-bottom: 3px solid $primary;
+            }
           }
         }
 

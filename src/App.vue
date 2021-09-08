@@ -3,19 +3,22 @@
   <HeaderNav />
   <router-view class="router-view"></router-view>
   <Loader v-if="loading" />
+  <to-top />
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue'
 import HeaderNav from './components/HeaderNav.vue'
 import Loader from './components/Loader.vue'
+import ToTop from './components/ToTop.vue'
 import Bus from './utils/bus'
 
 export default defineComponent({
   name: 'App',
   components: {
     HeaderNav,
-    Loader
+    Loader,
+    ToTop
   },
   setup() {
     const loading = ref(false)

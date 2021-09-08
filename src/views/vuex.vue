@@ -6,9 +6,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, onMounted, reactive } from 'vue'
 import CommentBox from '@/components/CommentBox.vue'
 import ExDatePicker from '@/components/ExDatePicker/index.vue'
+import { numberToChinese } from '@/utils/number'
 export default defineComponent({
   name: 'Vuex',
   components: {
@@ -29,6 +30,10 @@ export default defineComponent({
         },
         calendarData: []
       }
+    })
+
+    onMounted(() => {
+      console.log(numberToChinese(10530))
     })
 
     return { ...state }

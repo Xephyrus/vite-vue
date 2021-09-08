@@ -29,6 +29,10 @@ export default defineConfig({
           referer: 'https://www.bilibili.com',
           origin: 'https://www.bilibili.com'
         }
+      },
+      '/local': {
+        target: 'http://localhost:8000/',
+        rewrite: (path) => path.replace(/^\/local/, '')
       }
     }
   }

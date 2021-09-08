@@ -7,7 +7,7 @@
         :style="{
           '--before': item.before,
           '--active': item.active,
-          backgroundImage: `url('${item.cover}')`
+          backgroundImage: `url(${item.cover})`
         }"
         class="cube-surface"
       >

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, reactive, ref, onMounted } from 'vue'
+import { defineComponent, reactive, ref, onMounted } from 'vue'
 export default defineComponent({
   props: {
     url: {
@@ -35,12 +35,10 @@ export default defineComponent({
         '--x': offsetX + 'px',
         '--y': offsetY + 'px'
       }
-      // console.log(state.style.value)
     }
 
     onMounted(() => {
       const { url } = props
-      console.log(url)
       const image = new Image()
       image.src = url
       image.onload = () => {

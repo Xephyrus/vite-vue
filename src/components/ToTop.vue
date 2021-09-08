@@ -1,15 +1,35 @@
 <template>
-  <div class="to-top">
-      toTop
+  <div v-show="showTop" class="to-top" @click="toTop">
+    <astronaut></astronaut>
   </div>
 </template>
 
 <script>
+import { onMounted, ref } from '@vue/runtime-core'
+import Astronaut from './Astronaut.vue'
+import { toTop } from '@/utils/tools'
 export default {
-
+  components: { Astronaut },
+  setup(props) {
+    const showTop = ref(window.scrollY > 20)
+    const onScroll = () => {
+      showTop.value = window.scrollY > 20
+    }
+    onMounted(() => {
+      window.addEventListener('scroll', onScroll)
+    })
+    return { showTop, onScroll, toTop }
+  }
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.to-top {
+  position: fixed;
+  left: 50%;
+  margin-left: 510px;
+  margin-bottom: 20px;
+  bottom: 0;
+  cursor: pointer;
+}
 </style>

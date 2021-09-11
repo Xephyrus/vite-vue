@@ -1,41 +1,41 @@
 <template>
   <div class="home">
-    <el-carousel direction="vertical" :autoplay="false">
-      <el-carousel-item v-for="i in 38" :key="i">
-        <img
-          class="bg-image"
-          :src="`https://consumer.huawei.com/content/dam/huawei-cbg-site/greate-china/cn/mkt/pdp/phones/mate-x2/img/performance/wallpaper/${(
-            i - 1
-          )
-            .toString()
-            .padStart(4, '0')}.webp`"
-          alt=""
-        />
+    <github></github>
+    <el-carousel>
+      <el-carousel-item v-for="(item, index) in refData.baiduH5" :key="index">
+        <div class="slide-wrap">
+          <div class="image" :style="{ backgroundImage: `url(${item.bgImage})` }"></div>
+          <div class="text">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.text }}</p>
+          </div>
+        </div>
       </el-carousel-item>
     </el-carousel>
     <div class="bg flex mb-40">
       <animate-icon
-        v-for="(item, index) in iconList"
+        v-for="(item, index) in refData.iconList"
         :key="index"
         v-bind="item"
         class="icon"
       ></animate-icon>
       <ali-icon
-        v-for="(item, index) in aliIcons"
+        v-for="(item, index) in refData.aliIcons"
         :key="index"
         v-bind="item"
         class="icon"
       ></ali-icon>
+      <wy-icon v-for="(item, index) in refData.wyIcons" :key="index" v-bind="item"></wy-icon>
+    </div>
+    <div class="bg flex">
       <div class="tpm-solution__summary">
         <div class="tpm-solution__summary-ani"></div>
       </div>
-      <astronaut></astronaut>
     </div>
-    <div class="bg"></div>
-    <process-bar :config="config1"></process-bar>
-    <process-bar ref="abnormal" :config="config"></process-bar>
+    <process-bar ref="healthy" :config="refData.config1"></process-bar>
+    <process-bar ref="abnormal" :config="refData.config"></process-bar>
     <div class="mb-20">
-      <el-input v-model="params.ref" class="width-200"></el-input>
+      <el-input v-model="refData.params.ref" class="width-200"></el-input>
       <el-button @click="showLoading">loading</el-button>
       <el-button @click="addTen" type="primary">+10</el-button>
     </div>
@@ -74,169 +74,165 @@
 </template>
 
 <script lang="ts">
-import { reactive, defineComponent, ref, onBeforeUnmount } from 'vue'
+export default defineComponent({
+  name: 'Home'
+})
+</script>
+
+<script lang="ts" setup>
+import { reactive, defineComponent, ref, onBeforeUnmount, useAttrs, useSlots } from 'vue'
 import ProcessBar from '@/components/svg/process-bar.vue'
 import Clock from '@/components/div/Clock.vue'
 import Bus from '../utils/bus'
-import Safari from '../components/div/Safari.vue'
-import Album from '../components/div/Album.vue'
-import Saturn from '../components/div/Saturn.vue'
-import Cards from '../components/div/Cards.vue'
-import Skeleton from '../components/div/Skeleton.vue'
-import Masonry from '../components/div/Masonry.vue'
-import Cube from '../components/div/Cube.vue'
-import JueJin from '../components/div/JueJin.vue'
-import Dashboard from '../components/Dashboard.vue'
-import Radar from '../components/div/Radar.vue'
-import Google from '../components/div/Google.vue'
-import Scanning from '../components/div/Scanning.vue'
+import Safari from '@/components/div/Safari.vue'
+import Album from '@/components/div/Album.vue'
+import Saturn from '@/components/div/Saturn.vue'
+import Cards from '@/components/div/Cards.vue'
+import Skeleton from '@/components/div/Skeleton.vue'
+import Masonry from '@/components/div/Masonry.vue'
+import Cube from '@/components/div/Cube.vue'
+import JueJin from '@/components/div/JueJin.vue'
+import Dashboard from '@/components/Dashboard.vue'
+import Radar from '@/components/div/Radar.vue'
+import Google from '@/components/div/Google.vue'
+import Scanning from '@/components/div/Scanning.vue'
 import AnimateIcon from '@/components/AnimateIcon.vue'
-import Astronaut from '@/components/Astronaut.vue'
 import AliIcon from '@/components/AliIcon.vue'
+import WyIcon from '../components/WyIcon.vue'
+import Github from '@/components/svg/Github.vue'
 
-export default defineComponent({
-  name: 'Home',
-  components: {
-    ProcessBar,
-    Clock,
-    Safari,
-    Album,
-    Saturn,
-    Cards,
-    Skeleton,
-    Masonry,
-    Cube,
-    JueJin,
-    Dashboard,
-    Radar,
-    Google,
-    Scanning,
-    AnimateIcon,
-    Astronaut,
-    AliIcon
+const abnormal = ref<any>(null)
+const refData = reactive({
+  config: {
+    title: '问题数据',
+    labelColor: '#f00',
+    percentage: 25,
+    textColor: '#f25268',
+    gradient: ['#ff0', '#f00'],
+    gradientId: 'g1'
   },
-  setup(props, AnimateIcon) {
-    const abnormal: any = ref(null)
-    const refData = reactive({
-      config: {
-        title: '问题数据',
-        labelColor: '#f00',
-        percentage: 25,
-        textColor: '#f25268',
-        gradient: ['#ff0', '#f00'],
-        gradientId: 'g1'
-      },
-      config1: {
-        title: '健康数据',
-        labelColor: '#31a601',
-        percentage: 75,
-        textColor: '#3fb524',
-        gradient: ['#9af504', '#45d898'],
-        gradientId: 'g2'
-      },
-      params: {
-        ref: 3
-      },
-      iconList: [
-        { icon: 'ani-hot', text: '热门推荐' },
-        { icon: 'ani-base', text: '计算' },
-        { icon: 'ani-middleware', text: '容器与中间件' },
-        { icon: 'ani-storage', text: '存储' },
-        { icon: 'ani-database', text: '数据库' },
-        { icon: 'ani-net', text: '网络与CDN' },
-        { icon: 'ani-video', text: '视频服务' },
-        { icon: 'ani-safe', text: '安全' },
-        { icon: 'ani-big-data', text: '大数据' },
-        { icon: 'ani-ai', text: 'AI' },
-        { icon: 'ani-iot', text: '物联网' },
-        { icon: 'ani-app', text: '企业应用与云通信' },
-        { icon: 'ani-industry', text: '行业应用' },
-        { icon: 'ani-developer', text: '开发者服务' }
-      ],
-      aliIcons: [
-        {
-          icon: 'ali-hot',
-          title: '热门产品'
-        },
-        {
-          icon: 'ali-compute',
-          title: '弹性计算'
-        },
-        {
-          icon: 'ali-storage',
-          title: '存储'
-        },
-        {
-          icon: 'ali-db',
-          title: '数据库'
-        },
-        {
-          icon: 'ali-safety',
-          title: '安全'
-        },
-        {
-          icon: 'ali-big-data',
-          title: '大数据'
-        },
-        {
-          icon: 'ali-ai',
-          title: '人工智能'
-        },
-        {
-          icon: 'ali-net&cdn',
-          title: '网络与CDN'
-        },
-        {
-          icon: 'ali-video',
-          title: '视频服务'
-        },
-        {
-          icon: 'ali-middleware',
-          title: '容器与中间件'
-        },
-        {
-          icon: 'ali-developer',
-          title: '开发与运维'
-        },
-        {
-          icon: 'ali-iot',
-          title: '物联网IoT'
-        },
-        {
-          icon: 'ali-mix-cloud',
-          title: '混合云'
-        },
-        {
-          icon: 'ali-app',
-          title: '企业应用与云通信'
-        }
-      ]
-    })
-
-    const addTen = () => {
-      refData.config.percentage += 10
-      if (refData.config.percentage > 100) {
-        refData.config.percentage = 100
-      }
-      let value: any = abnormal.value
-      value.initCircle()
+  config1: {
+    title: '健康数据',
+    labelColor: '#31a601',
+    percentage: 75,
+    textColor: '#3fb524',
+    gradient: ['#9af504', '#45d898'],
+    gradientId: 'g2'
+  },
+  params: {
+    ref: 3
+  },
+  iconList: [
+    { icon: 'ani-hot', text: '热门推荐' },
+    { icon: 'ani-base', text: '计算' },
+    { icon: 'ani-middleware', text: '容器与中间件' },
+    { icon: 'ani-storage', text: '存储' },
+    { icon: 'ani-database', text: '数据库' },
+    { icon: 'ani-net', text: '网络与CDN' },
+    { icon: 'ani-video', text: '视频服务' },
+    { icon: 'ani-safe', text: '安全' },
+    { icon: 'ani-big-data', text: '大数据' },
+    { icon: 'ani-ai', text: 'AI' },
+    { icon: 'ani-iot', text: '物联网' },
+    { icon: 'ani-app', text: '企业应用与云通信' },
+    { icon: 'ani-industry', text: '行业应用' },
+    { icon: 'ani-developer', text: '开发者服务' }
+  ],
+  aliIcons: [
+    {
+      icon: 'ali-hot',
+      title: '热门产品'
+    },
+    {
+      icon: 'ali-compute',
+      title: '弹性计算'
+    },
+    {
+      icon: 'ali-storage',
+      title: '存储'
+    },
+    {
+      icon: 'ali-db',
+      title: '数据库'
+    },
+    {
+      icon: 'ali-safety',
+      title: '安全'
+    },
+    {
+      icon: 'ali-big-data',
+      title: '大数据'
+    },
+    {
+      icon: 'ali-ai',
+      title: '人工智能'
+    },
+    {
+      icon: 'ali-net&cdn',
+      title: '网络与CDN'
+    },
+    {
+      icon: 'ali-video',
+      title: '视频服务'
+    },
+    {
+      icon: 'ali-middleware',
+      title: '容器与中间件'
+    },
+    {
+      icon: 'ali-developer',
+      title: '开发与运维'
+    },
+    {
+      icon: 'ali-iot',
+      title: '物联网IoT'
+    },
+    {
+      icon: 'ali-mix-cloud',
+      title: '混合云'
+    },
+    {
+      icon: 'ali-app',
+      title: '企业应用与云通信'
     }
-
-    const showLoading = () => {
-      Bus.$emit('loading')
-      setTimeout(() => {
-        Bus.$emit('loading')
-      }, refData.params.ref * 1000)
+  ],
+  wyIcons: [{ type: 'a' }, { type: 'b' }, { type: 'c' }],
+  baiduH5: [
+    {
+      bgImage: 'https://fex.bdstatic.com/h5static/services/store/images/3dd03cd5.S01.png',
+      title: '拒绝广告 · 聚焦交互体验',
+      text: '免费发布的 H5 页面不添加任何破坏整体设计的平台广告，百分百聚焦内容'
+    },
+    {
+      bgImage: 'https://fex.bdstatic.com/h5static/services/store/images/9b32b84b.S02.png',
+      title: '编辑神器 · 专业效果呈现',
+      text: '智能辅助线、时间轴、一键PSD导入、多设备分辨率兼容专利技术构建专业级体验'
+    },
+    {
+      bgImage: 'https://fex.bdstatic.com/h5static/services/store/images/992477a6.S03.png',
+      title: '云化架构 · 极速稳定保障',
+      text: '超大规模分布式架构与运维、安全体系，支持独立部署和https，极速稳定'
     }
-
-    return {
-      ...refData,
-      abnormal,
-      addTen,
-      showLoading
-    }
-  }
+  ]
 })
+
+const addTen = () => {
+  refData.config.percentage += 10
+  if (refData.config.percentage > 100) {
+    refData.config.percentage = 100
+  }
+  let value: any = abnormal.value
+  console.log(abnormal)
+  console.log(value)
+  value.initCircle()
+}
+
+const showLoading = () => {
+  Bus.$emit('loading')
+  setTimeout(() => {
+    Bus.$emit('loading')
+  }, refData.params.ref * 1000)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -310,19 +306,48 @@ export default defineComponent({
   vertical-align: top;
 }
 
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 18px;
-  opacity: 0.75;
-  line-height: 300px;
-  margin: 0;
+.slide-wrap {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  .image {
+    width: 412px;
+    height: 229px;
+    background-size: cover;
+  }
+
+  .text {
+    h2 {
+      font-weight: 200;
+      color: #000;
+      line-height: 64px;
+      font-size: 32px;
+    }
+
+    p {
+      font-weight: 200;
+      color: #999;
+      font-size: 15px;
+      line-height: 26px;
+    }
+  }
 }
 
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
+.el-carousel__item {
+  background-color: #d3dce6;
 }
+
+// .el-carousel__item:nth-child(2n) {
+//   background-color: #99a9bf;
+// }
 
 .el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
+  // background-color: #d3dce6;
+  .slide-wrap {
+    -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
+    flex-direction: row-reverse;
+  }
 }
 </style>

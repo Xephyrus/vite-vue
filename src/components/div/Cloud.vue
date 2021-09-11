@@ -4,10 +4,6 @@
   </figure>
 </template>
 
-<script>
-export default {}
-</script>
-
 <style lang="scss" scoped>
 .cloud {
   font-size: 30px;

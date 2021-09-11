@@ -2,11 +2,15 @@
   <div class="loader-wrap">
     <div class="loader-wrap-box">
       <div class="loader">
-        <span v-for="i in 20" :key="i" :style="{ '--i': i }"></span>
+        <span v-for="i in 20" :key="i" :style="setStyle(i)"></span>
       </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const setStyle = (i: number) => ({ '--i': i } as any)
+</script>
 
 <style lang="scss" scoped>
 @keyframes animateBg {

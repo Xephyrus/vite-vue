@@ -28,23 +28,17 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from 'vue'
-export default {
-  setup() {
-    const name = ref('Home')
-    return {
-      name
-    }
-  }
-}
+
+const name = ref('Home')
 </script>
 
 <style lang="scss" scoped>
 @import '../style/mixin.scss';
 .header {
   position: fixed;
-  z-index: 10;
+  z-index: 11;
   height: 60px;
   left: 0;
   top: 0;

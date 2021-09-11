@@ -1,15 +1,6 @@
 <template>
   <div class="levels">
-    <div
-      v-for="(item, index) in cards"
-      :key="index"
-      :style="{
-        zIndex: cards.length - index,
-        '--color': item.color,
-        '--activate': item.activate
-      }"
-      class="level"
-    >
+    <div v-for="(item, index) in cards" :key="index" :style="useStyle(item, index)" class="level">
       <div class="title">{{ item.title }}</div>
       <div class="content">{{ item.content }}</div>
     </div>
@@ -20,14 +11,25 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  setup(props) {
+  setup() {
     const cards = ref<any[]>([
       { title: 'One', content: 'One Content', color: '#bd7be8', activate: '#8063e1' },
       { title: 'Two', content: 'Two Content', color: '#7f94fc', activate: '#3f58e3' },
       { title: 'Three', content: 'Three Content', color: '#21bbfe', activate: '#2c6fd1' },
       { title: 'Four', content: 'Four Content', color: '#415197', activate: '#352f64' }
     ])
-    return { cards }
+    const useStyle = (item: any, index: number) =>
+      ({
+        '--color': item.color,
+        '--activate': item.activate,
+        zIndex: cards.value.length - index
+      } as any)
+    return {
+      defineComponent,
+      ref,
+      cards,
+      useStyle
+    }
   }
 })
 </script>

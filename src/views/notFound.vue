@@ -5,7 +5,9 @@
       <h2 class="text-404">404 not found</h2>
       <div class="link-wrap">
         <div class="text-left mb-20">
-          <ex-button type="primary" @click="router.push('/')"><span class="font-lcd">BACK TO HOMEPAGE</span></ex-button>
+          <ex-button type="primary" @click="router.push('/')"
+            ><span class="font-lcd">BACK TO HOMEPAGE</span></ex-button
+          >
         </div>
         <div class="font-lcd text-primary text-right text-back mg-8" @click="router.go(-1)">
           Or, back to previous page
@@ -17,17 +19,16 @@
 </template>
 
 <script lang="ts">
+export default defineComponent({
+  name: 'notFound'
+})
+</script>
+
+<script lang="ts" setup>
+import { defineComponent } from 'vue'
 import exButton from '../components/base/ex-button.vue'
 import SvgIcon from '../components/SvgIcon.vue'
 import router from '../router/index'
-
-export default {
-  components: { exButton, SvgIcon },
-  name: 'notFound',
-  setup(props) {
-    return { router }
-  }
-}
 </script>
 
 <style lang="scss" scoped>

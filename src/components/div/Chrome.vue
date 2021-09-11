@@ -1,11 +1,6 @@
 <template>
   <figure class="chrome">
-    <div
-      v-for="(item, index) in colors"
-      :key="index"
-      :style="{ '--deg': 120 * index + 'deg' }"
-      class="circular"
-    >
+    <div v-for="(item, index) in colors" :key="index" :style="setStyle(index)" class="circular">
       <div class="wrap">
         <div class="third-round" :style="item"></div>
       </div>
@@ -15,34 +10,32 @@
   </figure>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from 'vue'
-export default {
-  props: {
-    size: {
-      type: [String, Number],
-      default: 10
-    }
-  },
-  setup(props) {
-    const colors = ref([
-      {
-        background: '#ea4355',
-        zIndex: 1
-      },
-      {
-        background: '#fbb605',
-        zIndex: 2
-      },
-      {
-        background: '#34a853',
-        zIndex: 3
-      }
-    ])
 
-    return { colors, ...props }
+const props = defineProps({
+  size: {
+    type: [String, Number],
+    default: 10
   }
-}
+})
+
+const colors = ref([
+  {
+    background: '#ea4355',
+    zIndex: 1
+  },
+  {
+    background: '#fbb605',
+    zIndex: 2
+  },
+  {
+    background: '#34a853',
+    zIndex: 3
+  }
+])
+
+const setStyle = (index: number) => ({ '--deg': 120 * index + 'deg' } as any)
 </script>
 
 <style lang="scss" scoped>

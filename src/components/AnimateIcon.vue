@@ -7,90 +7,75 @@
         backgroundImage: map.get(icon)
       }"
     ></i>
-    {{ text }}
+    <p>{{ text }}</p>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref, defineComponent } from 'vue'
-export default defineComponent({
-  props: {
-    icon: {
-      type: String,
-      default: 'ani-hot'
-    },
-    text: {
-      type: String,
-      default: ''
-    }
+
+const props = defineProps({
+  icon: {
+    type: String,
+    default: 'ani-hot'
   },
-  setup(props: any) {
-    const status = ref<number>(0)
-    const map = ref<Map<string, string>>(
-      new Map([
-        [
-          'ani-hot',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-hot.png")'
-        ],
-        [
-          'ani-base',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-base.png")'
-        ],
-        [
-          'ani-middleware',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-middleware.png")'
-        ],
-        [
-          'ani-storage',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-storage.png")'
-        ],
-        [
-          'ani-database',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-database.png")'
-        ],
-        ['ani-net', 'url("https://main.qcloudimg.com/raw/aa866277d1ea20bc4d8471dc6a11957c.png")'],
-        [
-          'ani-video',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-video.png")'
-        ],
-        [
-          'ani-safe',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-safe.png")'
-        ],
-        [
-          'ani-big-data',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-big-data.png")'
-        ],
-        [
-          'ani-ai',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-ai.png")'
-        ],
-        [
-          'ani-iot',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-iot.png")'
-        ],
-        [
-          'ani-app',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-app.png")'
-        ],
-        [
-          'ani-industry',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-industry.png")'
-        ],
-        [
-          'ani-developer',
-          'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-developer.png")'
-        ],
-        [
-          'ani-spriteeef',
-          'url("https://cloudcache.tencent-cloud.com/open_proj/proj_qcloud_v2/tea-portal-material-portal/images/ani-spriteeef.png")'
-        ]
-      ])
-    )
-    const width = ref<string>('100px')
-    return { ...props, status, map, width }
+  text: {
+    type: String,
+    default: ''
   }
 })
+
+const status = ref<number>(0)
+const map = ref<Map<string, string>>(
+  new Map([
+    ['ani-hot', 'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-hot.png")'],
+    [
+      'ani-base',
+      'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-base.png")'
+    ],
+    [
+      'ani-middleware',
+      'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-middleware.png")'
+    ],
+    [
+      'ani-storage',
+      'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-storage.png")'
+    ],
+    [
+      'ani-database',
+      'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-database.png")'
+    ],
+    ['ani-net', 'url("https://main.qcloudimg.com/raw/aa866277d1ea20bc4d8471dc6a11957c.png")'],
+    [
+      'ani-video',
+      'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-video.png")'
+    ],
+    [
+      'ani-safe',
+      'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-safe.png")'
+    ],
+    [
+      'ani-big-data',
+      'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-big-data.png")'
+    ],
+    ['ani-ai', 'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-ai.png")'],
+    ['ani-iot', 'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-iot.png")'],
+    ['ani-app', 'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-app.png")'],
+    [
+      'ani-industry',
+      'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-industry.png")'
+    ],
+    [
+      'ani-developer',
+      'url("https://main.qcloudimg.com/trisys/assets/home/images/product/ani-developer.png")'
+    ],
+    [
+      'ani-spriteeef',
+      'url("https://cloudcache.tencent-cloud.com/open_proj/proj_qcloud_v2/tea-portal-material-portal/images/ani-spriteeef.png")'
+    ]
+  ])
+)
+const width = ref<string>('100px')
 </script>
 
 <style lang="scss" scoped>
@@ -141,6 +126,10 @@ export default defineComponent({
 
     &.is-enter {
       animation: tpm-product-multi__icon-enter 0.5s steps(24) forwards;
+
+      & + p {
+        color: #0052d9;
+      }
     }
   }
 }

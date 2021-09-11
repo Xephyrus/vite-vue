@@ -30,29 +30,31 @@
 </template>
 
 <script lang="ts">
+export default defineComponent({
+  name: 'HelloWorld'
+})
+</script>
+
+<script lang="ts" setup>
 import { ref, defineComponent } from 'vue'
 import axios from '../utils/axios'
-export default defineComponent({
-  name: 'HelloWorld',
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
-  },
-  setup: () => {
-    axios
-      .get('/users/XPoet')
-      .then((res) => {
-        console.log('res: ', res)
-      })
-      .catch((err) => {
-        console.log('err: ', err)
-      })
-    const count = ref(0)
-    return { count }
+
+defineProps({
+  msg: {
+    type: String,
+    required: true
   }
 })
+
+axios
+  .get('/users/XPoet')
+  .then((res) => {
+    console.log('res: ', res)
+  })
+  .catch((err) => {
+    console.log('err: ', err)
+  })
+const count = ref(0)
 </script>
 
 <style scoped>

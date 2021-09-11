@@ -18,56 +18,53 @@
 </template>
 
 <script lang="ts">
-import { reactive, onMounted, onBeforeUnmount } from 'vue'
+export default defineComponent({
+  name: 'Clock'
+})
+</script>
 
-export default {
-  name: 'Clock',
-  setup() {
-    const state: any = reactive({
-      timeArr: [
-        {
-          name: 'hour',
-          degrees: 90
-        },
-        {
-          name: 'minute',
-          degrees: 90
-        },
-        {
-          name: 'second',
-          degrees: 90
-        }
-      ],
-      timer: null
-    })
+<script lang="ts" setup>
+import { reactive, onMounted, onBeforeUnmount, defineComponent, ref } from 'vue'
 
-    const setData = () => {
-      let now: any = new Date()
-      let [hours, minutes, seconds] = ['getHours', 'getMinutes', 'getSeconds'].map((item) =>
-        now[item]()
-      )
-      state.timeArr[0]['degrees'] = (hours / 12) * 360 + (minutes / 60) * 30 + 90
-      state.timeArr[1]['degrees'] = (minutes / 60) * 360 + (seconds / 60) * 6 + 90
-      state.timeArr[2]['degrees'] = (seconds / 60) * 360 + 90
-    }
+const state = reactive<any>({
+  timer: null
+})
 
-    onMounted(() => {
-      setData()
-      state.timer = setInterval(() => {
-        setData()
-      }, 1000)
-    })
-
-    onBeforeUnmount(() => {
-      state.timer = null
-    })
-
-    return {
-      ...state,
-      setData
-    }
+const timeArr = ref<Array<any>>([
+  {
+    name: 'hour',
+    degrees: 90
+  },
+  {
+    name: 'minute',
+    degrees: 90
+  },
+  {
+    name: 'second',
+    degrees: 90
   }
+])
+
+const setData = () => {
+  let now: any = new Date()
+  let [hours, minutes, seconds] = ['getHours', 'getMinutes', 'getSeconds'].map((item) =>
+    now[item]()
+  )
+  timeArr.value[0].degrees = (hours / 12) * 360 + (minutes / 60) * 30 + 90
+  timeArr.value[1].degrees = (minutes / 60) * 360 + (seconds / 60) * 6 + 90
+  timeArr.value[2].degrees = (seconds / 60) * 360 + 90
 }
+
+onMounted(() => {
+  setData()
+  state.timer = setInterval(() => {
+    setData()
+  }, 1000)
+})
+
+onBeforeUnmount(() => {
+  state.timer = null
+})
 </script>
 
 <style lang="scss" scoped>

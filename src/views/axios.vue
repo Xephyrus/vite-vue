@@ -65,16 +65,17 @@
 </template>
 
 <script lang="ts">
+export default defineComponent({
+name: 'Axios',
+});
+</script>
+
+<script lang="ts" setup>
 import Logo from '@/components/div/Logo.vue'
 import { defineComponent, onMounted, reactive, computed } from 'vue'
 import { getSearchList, getOnlineList, getSearchDefault } from '../api/bilibili'
-import { getMessage } from '@/api/local'
 
-export default defineComponent({
-  components: { Logo },
-  name: 'Axios',
-  setup(props) {
-    const state = reactive<any>({
+const state = reactive<any>({
       result: []
     })
     const list = computed<any[]>(() => state.result)
@@ -85,10 +86,6 @@ export default defineComponent({
         getOnlineList(),
         getSearchDefault()
       ]
-      // console.log(111)
-      // getMessage().then((res: any) => {
-      //   console.log(res)
-      // })
       Promise.all([list, online, defaults]).then((res: any[]) => {
         const [a, b, c] = res
         /*Vue只能使用如下数组方法，才能响应式更新视图：
@@ -103,10 +100,6 @@ export default defineComponent({
         state.result = a.data.data.result.map((item: any) => item.pic) // 直接赋值不会触发
       })
     })
-
-    return { ...state, list }
-  }
-})
 </script>
 
 <style lang="scss" scoped>

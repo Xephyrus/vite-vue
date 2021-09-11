@@ -1,12 +1,14 @@
 import Axios from 'axios'
 import { ElMessage } from 'element-plus'
 
-const baseURL = 'http://localhost:4000'
+const baseURL = ''
 
 const axios = Axios.create({
   baseURL,
   timeout: 20000 // 请求超时 20s
 })
+
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 // 前置拦截器（发起请求之前的拦截）
 axios.interceptors.request.use(

@@ -6,14 +6,15 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
-export default {
-  name: 'Scanning',
-  setup(props) {
-    const image = ref<string>('')
-    return { image }
-  }
-}
+export default defineComponent({
+name: 'Scanning',
+});
+</script>
+
+<script lang="ts" setup>
+import { defineComponent, ref } from 'vue'
+
+const image = ref<string>('')
 </script>
 
 <style lang="scss" scoped>

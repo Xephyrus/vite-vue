@@ -4,22 +4,17 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  props: {
-    size: {
-      type: [String, Number],
-      default: 10
-    },
-    bgColor: {
-      type: String,
-      default: 'orange'
-    }
+<script lang="ts" setup>
+const props = defineProps({
+  size: {
+    type: [String, Number],
+    default: 10
   },
-  setup(props) {
-    return { ...props }
+  bgColor: {
+    type: String,
+    default: 'orange'
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

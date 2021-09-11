@@ -14,14 +14,15 @@ export default defineConfig({
   },
   base: './', // 设置打包路径
   server: {
-    port: 4000, // 设置服务启动端口号
+    host: '0.0.0.0', // ip
+    port: 80, // 设置服务启动端口号
     open: true, // 设置服务启动时是否自动打开浏览器
     cors: true, // 允许跨域
     strictPort: true,
     // 设置代理，根据我们项目实际情况配置
     proxy: {
       '/api': {
-        target: 'https://api.bilibili.com/x/',
+        target: 'https://api.bilibili.com/',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ''),
@@ -29,11 +30,11 @@ export default defineConfig({
           referer: 'https://www.bilibili.com',
           origin: 'https://www.bilibili.com'
         }
-      },
-      '/local': {
-        target: 'http://localhost:8000/',
-        rewrite: (path) => path.replace(/^\/local/, '')
       }
+      // '/local': {
+      //   target: 'http://localhost:8000/',
+      //   rewrite: (path) => path.replace(/^\/local/, '')
+      // }
     }
   }
 })

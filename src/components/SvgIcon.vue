@@ -5,33 +5,35 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
 export default defineComponent({
-  name: 'SvgIcon',
-  props: {
-    name: {
-      type: String
-    },
-    size: {
-      type: String || Number,
-      default: '32'
-    },
-    color: {
-      type: String,
-      default: '#cdcdcd'
-    },
-    activeColor: {
-      type: String,
-      default: '#2061ff'
-    }
+  name: 'SvgIcon'
+})
+</script>
+
+<script lang="ts" setup>
+import { defineComponent, ref, computed } from 'vue'
+
+const props = defineProps({
+  name: {
+    type: String
   },
-  setup(props) {
-    const iconLink = computed(() => `#icon-${props.name}`)
-    const color = ref(props.color)
-    const activeColor = ref(props.activeColor)
-    return { iconLink, color, activeColor }
+  size: {
+    type: String || Number,
+    default: '32'
+  },
+  color: {
+    type: String,
+    default: '#cdcdcd'
+  },
+  activeColor: {
+    type: String,
+    default: '#2061ff'
   }
 })
+
+const iconLink = computed(() => `#icon-${props.name}`)
+const color = ref(props.color)
+const activeColor = ref(props.activeColor)
 </script>
 
 <style lang="scss" scoped>

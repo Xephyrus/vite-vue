@@ -9,40 +9,40 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, onMounted } from 'vue'
 export default defineComponent({
-  name: 'Dashboard',
-  setup(props) {
-    const value = ref<number>(30)
-    const dash = (n: number) => {
-      let i = n - 1
-      let style: any = {}
-      if (i < value.value) {
-        style['--bg'] = 'hsl(' + 360 * (i / 100) + ', 100%, 50%)'
-        style['--sg'] = 'hsl(' + 360 * (i / 100) + ', 100%, 50%)'
-      } else {
-        style['--bg'] = 'black'
-        style['--sg'] = 'transparent'
-      }
-      style['--degree'] = 360 * (i / 100) + 'deg'
-      return style
-    }
+  name: 'Dashboard'
+})
+</script>
 
-    onMounted(() => {
-      // setInterval(() => {
-      //   let random = Math.random() * 20 - 10
-      //   value.value += Math.round(random)
-      //   if (value.value >= 100) {
-      //     value.value = 100
-      //   }
-      //   if (value.value <= 0) {
-      //     value.value = 0
-      //   }
-      // }, 500)
-    })
+<script lang="ts" setup>
+import { ref, defineComponent, onMounted } from 'vue'
 
-    return { value, dash }
+const value = ref<number>(30)
+const dash = (n: number) => {
+  let i = n - 1
+  let style: any = {}
+  if (i < value.value) {
+    style['--bg'] = 'hsl(' + 360 * (i / 100) + ', 100%, 50%)'
+    style['--sg'] = 'hsl(' + 360 * (i / 100) + ', 100%, 50%)'
+  } else {
+    style['--bg'] = 'black'
+    style['--sg'] = 'transparent'
   }
+  style['--degree'] = 360 * (i / 100) + 'deg'
+  return style
+}
+
+onMounted(() => {
+  // setInterval(() => {
+  //   let random = Math.random() * 20 - 10
+  //   value.value += Math.round(random)
+  //   if (value.value >= 100) {
+  //     value.value = 100
+  //   }
+  //   if (value.value <= 0) {
+  //     value.value = 0
+  //   }
+  // }, 500)
 })
 </script>
 
@@ -100,8 +100,9 @@ $progress: #1e9aff;
       height: 2em;
       background: $progress;
       border-radius: 50%;
-      box-shadow: 0 0 1em lighten($color: $progress, $amount: 10%), 0 0 2em lighten($color: $progress, $amount: 10%);
-      background: radial-gradient(#1a85ff 0%, #1a85ff 40%, #32a3ff 60% , #91cbfd 100% );
+      box-shadow: 0 0 1em lighten($color: $progress, $amount: 10%),
+        0 0 2em lighten($color: $progress, $amount: 10%);
+      background: radial-gradient(#1a85ff 0%, #1a85ff 40%, #32a3ff 60%, #91cbfd 100%);
       // border: 3px solid #77c0ff;
     }
   }

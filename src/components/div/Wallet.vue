@@ -1,38 +1,39 @@
 <template>
   <figure class="wallet">
-    <div
-      v-for="item in cards"
-      :key="item.index"
-      :style="{ zIndex: item.index, background: item.color, '--i': cards.length - item.index - 1 }"
-      class="card"
-    ></div>
+    <div v-for="item in cards" :key="item.index" :style="setStyle(item)" class="card"></div>
   </figure>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
+export default defineComponent({
+  name: 'Wallet'
+})
+</script>
 
-export default {
-  name: 'Wallet',
-  setup(props) {
-    const cards = ref<any[]>([
-      {
-        index: 0,
-        color: '#fe6b0c'
-      },
-      {
-        index: 1,
-        color: '#ffdf04'
-      },
-      {
-        index: 2,
-        color: '#4578f8'
-      }
-    ])
+<script lang="ts" setup>
+import { defineComponent, ref } from 'vue'
 
-    return { cards }
+const cards = ref<any[]>([
+  {
+    index: 0,
+    color: '#fe6b0c'
+  },
+  {
+    index: 1,
+    color: '#ffdf04'
+  },
+  {
+    index: 2,
+    color: '#4578f8'
   }
-}
+])
+
+const setStyle = (item: any) =>
+  ({
+    zIndex: item.index,
+    background: item.color,
+    '--i': cards.value.length - item.index - 1
+  } as any)
 </script>
 
 <style lang="scss" scoped>

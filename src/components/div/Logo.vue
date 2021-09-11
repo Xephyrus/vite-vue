@@ -123,17 +123,12 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import triangle from '../geometry/triangle.vue'
-export default {
-  components: { triangle },
-  props: {
+
+const props = defineProps({
     name: String
-  },
-  setup(props) {
-    return { ...props }
-  }
-}
+  });
 </script>
 
 <style lang="scss" scoped>

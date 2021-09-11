@@ -4,16 +4,21 @@
   </button>
 </template>
 
-<script>
-export default {
-  name: 'ExButton',
-  props: {
-    type: {
-      type: String,
-      default: 'default'
-    }
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'ExButton'
+})
+</script>
+
+<script lang="ts" setup>
+defineProps({
+  type: {
+    type: String,
+    default: 'default'
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

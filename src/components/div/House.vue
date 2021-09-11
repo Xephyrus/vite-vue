@@ -3,333 +3,280 @@
     Designed by: Joanna Ngai
     Original image: https://dribbble.com/shots/14118297-Villa
 -->
-<template>
-  <div
-    class="house"
-    id="h"
-    style="transform: perspective(20000px) rotateX(77.8254deg) rotateZ(38.1771deg) translateZ(-9vw)"
-  >
-    <div class="shadows">
-      <div class="shadow-a"></div>
-      <div class="shadow-b"></div>
-    </div>
-    <div class="al">
-      <div class="al__front face"></div>
-      <div class="al__back face"></div>
-      <div class="al__right face"></div>
-      <div class="al__left face"></div>
-      <div class="al__top face"></div>
-      <div class="al__bottom face"></div>
-    </div>
-    <div class="ab">
-      <div class="ab__front face"></div>
-      <div class="ab__back face"></div>
-      <div class="ab__right face"></div>
-      <div class="ab__left face"></div>
-      <div class="ab__top face"></div>
-      <div class="ab__bottom face"></div>
-    </div>
-    <div class="at">
-      <div class="at__front face"></div>
-      <div class="at__back face"></div>
-      <div class="at__right face"></div>
-      <div class="at__left face"></div>
-      <div class="at__top face"></div>
-      <div class="at__bottom face"></div>
-    </div>
-    <div class="ac">
-      <div class="ac__front face"></div>
-      <div class="ac__back face"></div>
-      <div class="ac__right face"></div>
-      <div class="ac__left face"></div>
-      <div class="ac__top face"></div>
-      <div class="ac__bottom face"></div>
-    </div>
-    <div class="bce">
-      <div class="bce__front face"></div>
-      <div class="bce__back face"></div>
-      <div class="bce__right face"></div>
-      <div class="bce__left face"></div>
-      <div class="bce__top face"></div>
-      <div class="bce__bottom face"></div>
-    </div>
-    <div class="bci">
-      <div class="bci__front face"></div>
-      <div class="bci__back face"></div>
-      <div class="bci__right face"></div>
-      <div class="bci__left face"></div>
-      <div class="bci__top face"></div>
-      <div class="bci__bottom face"></div>
-    </div>
-    <div class="bl">
-      <div class="bl__front face"></div>
-      <div class="bl__back face"></div>
-      <div class="bl__right face"></div>
-      <div class="bl__left face"></div>
-      <div class="bl__top face"></div>
-      <div class="bl__bottom face"></div>
-    </div>
-    <div class="bt">
-      <div class="bt__front face"></div>
-      <div class="bt__back face"></div>
-      <div class="bt__right face"></div>
-      <div class="bt__left face"></div>
-      <div class="bt__top face"></div>
-      <div class="bt__bottom face"></div>
-    </div>
-    <div class="bbe">
-      <div class="bbe__front face"></div>
-      <div class="bbe__back face"></div>
-      <div class="bbe__right face"></div>
-      <div class="bbe__left face"></div>
-      <div class="bbe__top face"></div>
-      <div class="bbe__bottom face"></div>
-    </div>
-    <div class="bbi">
-      <div class="bbi__front face"></div>
-      <div class="bbi__back face"></div>
-      <div class="bbi__right face"></div>
-      <div class="bbi__left face"></div>
-      <div class="bbi__top face"></div>
-      <div class="bbi__bottom face"></div>
-    </div>
-    <div class="cl">
-      <div class="cl__front face">
-        <div class="lamp"></div>
-      </div>
-      <div class="cl__back face"></div>
-      <div class="cl__right face"></div>
-      <div class="cl__left face"></div>
-      <div class="cl__top face"></div>
-      <div class="cl__bottom face"></div>
-    </div>
-    <div class="cc">
-      <div class="cc__front face"></div>
-      <div class="cc__back face"></div>
-      <div class="cc__right face"></div>
-      <div class="cc__left face"></div>
-      <div class="cc__top face"></div>
-      <div class="cc__bottom face"></div>
-    </div>
-    <div class="ccl">
-      <div class="ccl__front face"></div>
-      <div class="ccl__back face"></div>
-      <div class="ccl__right face"></div>
-      <div class="ccl__left face"></div>
-      <div class="ccl__top face"></div>
-      <div class="ccl__bottom face"></div>
-    </div>
-    <div class="cml">
-      <div class="cml__front face"></div>
-      <div class="cml__back face"></div>
-      <div class="cml__right face"></div>
-      <div class="cml__left face"></div>
-      <div class="cml__top face"></div>
-      <div class="cml__bottom face"></div>
-    </div>
-    <div class="cmr">
-      <div class="cmr__front face"></div>
-      <div class="cmr__back face"></div>
-      <div class="cmr__right face"></div>
-      <div class="cmr__left face"></div>
-      <div class="cmr__top face"></div>
-      <div class="cmr__bottom face"></div>
-    </div>
-    <div class="cmt">
-      <div class="cmt__front face"></div>
-      <div class="cmt__back face"></div>
-      <div class="cmt__right face"></div>
-      <div class="cmt__left face"></div>
-      <div class="cmt__top face"></div>
-      <div class="cmt__bottom face"></div>
-    </div>
-    <div class="dl">
-      <div class="dl__front face"></div>
-      <div class="dl__back face"></div>
-      <div class="dl__right face"></div>
-      <div class="dl__left face"></div>
-      <div class="dl__top face"></div>
-      <div class="dl__bottom face"></div>
-    </div>
-    <div class="dm">
-      <div class="dm__front face"></div>
-      <div class="dm__back face"></div>
-      <div class="dm__right face"></div>
-      <div class="dm__left face"></div>
-      <div class="dm__top face"></div>
-      <div class="dm__bottom face"></div>
-    </div>
-    <div class="dt">
-      <div class="dt__front face"></div>
-      <div class="dt__back face"></div>
-      <div class="dt__right face"></div>
-      <div class="dt__left face"></div>
-      <div class="dt__top face"></div>
-      <div class="dt__bottom face"></div>
-    </div>
-    <div class="el">
-      <div class="el__front face"></div>
-    </div>
-    <div class="ec">
-      <div class="ec__front face"></div>
-    </div>
-    <div class="er">
-      <div class="er__right face"></div>
-    </div>
-    <div class="eb">
-      <div class="eb__back face"></div>
-    </div>
-    <div class="fl">
-      <div class="fl__front face"></div>
-      <div class="fl__back face"></div>
-      <div class="fl__right face"></div>
-      <div class="fl__left face"></div>
-      <div class="fl__top face"></div>
-      <div class="fl__bottom face"></div>
-    </div>
-    <div class="ft">
-      <div class="ft__front face"></div>
-      <div class="ft__back face"></div>
-      <div class="ft__right face"></div>
-      <div class="ft__left face"></div>
-      <div class="ft__top face"></div>
-      <div class="ft__bottom face"></div>
-    </div>
-    <div class="fb">
-      <div class="fb__front face"></div>
-      <div class="fb__back face"></div>
-      <div class="fb__right face"></div>
-      <div class="fb__left face"></div>
-      <div class="fb__top face"></div>
-      <div class="fb__bottom face"></div>
-    </div>
-    <div class="table">
-      <div class="table__front face"></div>
-      <div class="table__back face"></div>
-      <div class="table__right face"></div>
-      <div class="table__left face"></div>
-      <div class="table__top face"></div>
-      <div class="table__bottom face">
-        <div class="foot">
-          <div class="foot__front face"></div>
-          <div class="foot__back face"></div>
-          <div class="foot__right face"></div>
-          <div class="foot__left face"></div>
-          <div class="foot__top face"></div>
-          <div class="foot__bottom face"></div>
-        </div>
-        <div class="foot">
-          <div class="foot__front face"></div>
-          <div class="foot__back face"></div>
-          <div class="foot__right face"></div>
-          <div class="foot__left face"></div>
-          <div class="foot__top face"></div>
-          <div class="foot__bottom face"></div>
-        </div>
-        <div class="foot">
-          <div class="foot__front face"></div>
-          <div class="foot__back face"></div>
-          <div class="foot__right face"></div>
-          <div class="foot__left face"></div>
-          <div class="foot__top face"></div>
-          <div class="foot__bottom face"></div>
-        </div>
-        <div class="foot">
-          <div class="foot__front face"></div>
-          <div class="foot__back face"></div>
-          <div class="foot__right face"></div>
-          <div class="foot__left face"></div>
-          <div class="foot__top face"></div>
-          <div class="foot__bottom face"></div>
-        </div>
-      </div>
-    </div>
-    <div class="kitchen">
-      <div class="kitchen__front face"></div>
-      <div class="kitchen__back face"></div>
-      <div class="kitchen__right face"></div>
-      <div class="kitchen__left face"></div>
-      <div class="kitchen__top face"></div>
-      <div class="kitchen__bottom face"></div>
-    </div>
-    <div class="couch">
-      <div class="couch__front face"></div>
-      <div class="couch__back face"></div>
-      <div class="couch__right face"></div>
-      <div class="couch__left face"></div>
-      <div class="couch__top face"></div>
-      <div class="couch__bottom face"></div>
-    </div>
-    <div class="couchb">
-      <div class="couchb__front face"></div>
-      <div class="couchb__back face"></div>
-      <div class="couchb__right face"></div>
-      <div class="couchb__left face"></div>
-      <div class="couchb__top face"></div>
-      <div class="couchb__bottom face"></div>
-    </div>
-    <div class="couchc">
-      <div class="couchc__front face"></div>
-      <div class="couchc__back face"></div>
-      <div class="couchc__right face"></div>
-      <div class="couchc__left face"></div>
-      <div class="couchc__top face"></div>
-      <div class="couchc__bottom face"></div>
-    </div>
-    <div class="couchd">
-      <div class="couchd__front face"></div>
-      <div class="couchd__back face"></div>
-      <div class="couchd__right face"></div>
-      <div class="couchd__left face"></div>
-      <div class="couchd__top face"></div>
-      <div class="couchd__bottom face"></div>
-    </div>
-    <div class="picture">
-      <div class="picture__front face"></div>
-      <div class="picture__back face"></div>
-      <div class="picture__right face"></div>
-      <div class="picture__left face"></div>
-      <div class="picture__top face"></div>
-      <div class="picture__bottom face"></div>
-    </div>
-    <div class="door-r">
-      <div class="door-r__front face"></div>
-      <div class="door-r__back face"></div>
-      <div class="door-r__right face"></div>
-      <div class="door-r__left face"></div>
-      <div class="door-r__top face"></div>
-      <div class="door-r__bottom face"></div>
-    </div>
-    <div class="door-l">
-      <div class="door-l__front face"></div>
-      <div class="door-l__back face"></div>
-      <div class="door-l__right face"></div>
-      <div class="door-l__left face"></div>
-      <div class="door-l__top face"></div>
-      <div class="door-l__bottom face"></div>
-    </div>
-    <div class="door-b">
-      <div class="door-b__front face"></div>
-      <div class="door-b__back face"></div>
-      <div class="door-b__right face"></div>
-      <div class="door-b__left face"></div>
-      <div class="door-b__top face"></div>
-      <div class="door-b__bottom face"></div>
-    </div>
-    <div class="door-t">
-      <div class="door-t__front face"></div>
-      <div class="door-t__back face"></div>
-      <div class="door-t__right face"></div>
-      <div class="door-t__left face"></div>
-      <div class="door-t__top face"></div>
-      <div class="door-t__bottom face"></div>
-    </div>
-  </div>
+<template lang="pug">
+#h.house(style="transform: perspective(20000px) rotateX(77.8254deg) rotateZ(38.1771deg) translateZ(-9vw)")
+  .shadows
+    .shadow-a
+    .shadow-b
+  .al
+    .al__front.face
+    .al__back.face
+    .al__right.face
+    .al__left.face
+    .al__top.face
+    .al__bottom.face
+  .ab
+    .ab__front.face
+    .ab__back.face
+    .ab__right.face
+    .ab__left.face
+    .ab__top.face
+    .ab__bottom.face
+  .at
+    .at__front.face
+    .at__back.face
+    .at__right.face
+    .at__left.face
+    .at__top.face
+    .at__bottom.face
+  .ac
+    .ac__front.face
+    .ac__back.face
+    .ac__right.face
+    .ac__left.face
+    .ac__top.face
+    .ac__bottom.face
+  .bce
+    .bce__front.face
+    .bce__back.face
+    .bce__right.face
+    .bce__left.face
+    .bce__top.face
+    .bce__bottom.face
+  .bci
+    .bci__front.face
+    .bci__back.face
+    .bci__right.face
+    .bci__left.face
+    .bci__top.face
+    .bci__bottom.face
+  .bl
+    .bl__front.face
+    .bl__back.face
+    .bl__right.face
+    .bl__left.face
+    .bl__top.face
+    .bl__bottom.face
+  .bt
+    .bt__front.face
+    .bt__back.face
+    .bt__right.face
+    .bt__left.face
+    .bt__top.face
+    .bt__bottom.face
+  .bbe
+    .bbe__front.face
+    .bbe__back.face
+    .bbe__right.face
+    .bbe__left.face
+    .bbe__top.face
+    .bbe__bottom.face
+  .bbi
+    .bbi__front.face
+    .bbi__back.face
+    .bbi__right.face
+    .bbi__left.face
+    .bbi__top.face
+    .bbi__bottom.face
+  .cl
+    .cl__front.face
+      .lamp
+    .cl__back.face
+    .cl__right.face
+    .cl__left.face
+    .cl__top.face
+    .cl__bottom.face
+  .cc
+    .cc__front.face
+    .cc__back.face
+    .cc__right.face
+    .cc__left.face
+    .cc__top.face
+    .cc__bottom.face
+  .ccl
+    .ccl__front.face
+    .ccl__back.face
+    .ccl__right.face
+    .ccl__left.face
+    .ccl__top.face
+    .ccl__bottom.face
+  .cml
+    .cml__front.face
+    .cml__back.face
+    .cml__right.face
+    .cml__left.face
+    .cml__top.face
+    .cml__bottom.face
+  .cmr
+    .cmr__front.face
+    .cmr__back.face
+    .cmr__right.face
+    .cmr__left.face
+    .cmr__top.face
+    .cmr__bottom.face
+  .cmt
+    .cmt__front.face
+    .cmt__back.face
+    .cmt__right.face
+    .cmt__left.face
+    .cmt__top.face
+    .cmt__bottom.face
+  .dl
+    .dl__front.face
+    .dl__back.face
+    .dl__right.face
+    .dl__left.face
+    .dl__top.face
+    .dl__bottom.face
+  .dm
+    .dm__front.face
+    .dm__back.face
+    .dm__right.face
+    .dm__left.face
+    .dm__top.face
+    .dm__bottom.face
+  .dt
+    .dt__front.face
+    .dt__back.face
+    .dt__right.face
+    .dt__left.face
+    .dt__top.face
+    .dt__bottom.face
+  .el
+    .el__front.face
+  .ec
+    .ec__front.face
+  .er
+    .er__right.face
+  .eb
+    .eb__back.face
+  .fl
+    .fl__front.face
+    .fl__back.face
+    .fl__right.face
+    .fl__left.face
+    .fl__top.face
+    .fl__bottom.face
+  .ft
+    .ft__front.face
+    .ft__back.face
+    .ft__right.face
+    .ft__left.face
+    .ft__top.face
+    .ft__bottom.face
+  .fb
+    .fb__front.face
+    .fb__back.face
+    .fb__right.face
+    .fb__left.face
+    .fb__top.face
+    .fb__bottom.face
+  .table
+    .table__front.face
+    .table__back.face
+    .table__right.face
+    .table__left.face
+    .table__top.face
+    .table__bottom.face
+      .foot
+        .foot__front.face
+        .foot__back.face
+        .foot__right.face
+        .foot__left.face
+        .foot__top.face
+        .foot__bottom.face
+      .foot
+        .foot__front.face
+        .foot__back.face
+        .foot__right.face
+        .foot__left.face
+        .foot__top.face
+        .foot__bottom.face
+      .foot
+        .foot__front.face
+        .foot__back.face
+        .foot__right.face
+        .foot__left.face
+        .foot__top.face
+        .foot__bottom.face
+      .foot
+        .foot__front.face
+        .foot__back.face
+        .foot__right.face
+        .foot__left.face
+        .foot__top.face
+        .foot__bottom.face
+  .kitchen
+    .kitchen__front.face
+    .kitchen__back.face
+    .kitchen__right.face
+    .kitchen__left.face
+    .kitchen__top.face
+    .kitchen__bottom.face
+  .couch
+    .couch__front.face
+    .couch__back.face
+    .couch__right.face
+    .couch__left.face
+    .couch__top.face
+    .couch__bottom.face
+  .couchb
+    .couchb__front.face
+    .couchb__back.face
+    .couchb__right.face
+    .couchb__left.face
+    .couchb__top.face
+    .couchb__bottom.face
+  .couchc
+    .couchc__front.face
+    .couchc__back.face
+    .couchc__right.face
+    .couchc__left.face
+    .couchc__top.face
+    .couchc__bottom.face
+  .couchd
+    .couchd__front.face
+    .couchd__back.face
+    .couchd__right.face
+    .couchd__left.face
+    .couchd__top.face
+    .couchd__bottom.face
+  .picture
+    .picture__front.face
+    .picture__back.face
+    .picture__right.face
+    .picture__left.face
+    .picture__top.face
+    .picture__bottom.face
+  .door-r
+    .door-r__front.face
+    .door-r__back.face
+    .door-r__right.face
+    .door-r__left.face
+    .door-r__top.face
+    .door-r__bottom.face
+  .door-l
+    .door-l__front.face
+    .door-l__back.face
+    .door-l__right.face
+    .door-l__left.face
+    .door-l__top.face
+    .door-l__bottom.face
+  .door-b
+    .door-b__front.face
+    .door-b__back.face
+    .door-b__right.face
+    .door-b__left.face
+    .door-b__top.face
+    .door-b__bottom.face
+  .door-t
+    .door-t__front.face
+    .door-t__back.face
+    .door-t__right.face
+    .door-t__left.face
+    .door-t__top.face
+    .door-t__bottom.face
 </template>
-
-<script>
-export default {}
-</script>
 
 <style lang="scss" scoped>
 $bg-1: #c6c5e1;

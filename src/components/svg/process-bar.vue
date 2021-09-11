@@ -13,7 +13,15 @@
         </filter>
       </defs>
       <svg viewBox="0 0 100 100">
-        <text x="50" y="50" class="center" :fill="config.textColor" style="dominant-baseline: middle;">{{ config.percentage }} %</text>
+        <text
+          x="50"
+          y="50"
+          class="center"
+          :fill="config.textColor"
+          :style="{ dominantBaseline: 'middle' }"
+        >
+          {{ config.percentage }} %
+        </text>
         <defs>
           <linearGradient :id="config.gradientId" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop
@@ -34,8 +42,7 @@
           fill="none"
           stroke="#e5e9f2"
           stroke-width="5"
-        >
-        </path>
+        ></path>
         <path
           ref="circle"
           d="M 50 50 m -40 0 a 40 40 0 1 0 80 0  a 40 40 0 1 0 -80 0"
@@ -51,34 +58,36 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted } from 'vue'
-export default {
-  name: 'process-bar',
-  props: {
-    config: {
-      type: Object,
-      default: () => ({ gradient: [], gradientId: 'gradient' })
-    }
-  },
-  setup(props: any) {
-    const circle = ref(null)
-    const initCircle = () => {
-      let percent: number = props?.config?.percentage / 100
-      let value: any = circle.value
-      let perimeter: number = value.getTotalLength()
-      // console.log(perimeter * percent + ', ' + perimeter)
-      value.setAttribute('stroke-dasharray', perimeter * percent + ', ' + perimeter)
-    }
-    onMounted(() => {
-      initCircle()
-    })
+export default defineComponent({
+  name: 'process-bar'
+})
+</script>
 
-    return {
-      circle,
-      initCircle
-    }
+<script lang="ts" setup>
+import { ref, onMounted, defineComponent } from 'vue'
+
+const props = defineProps({
+  config: {
+    type: Object,
+    default: () => ({ gradient: [], gradientId: 'gradient' })
   }
+})
+
+const circle = ref(null)
+const initCircle = () => {
+  let percent: number = props.config.percentage / 100
+  let value: any = circle.value
+  let perimeter: number = value.getTotalLength()
+  // console.log(perimeter * percent + ', ' + perimeter)
+  value.setAttribute('stroke-dasharray', perimeter * percent + ', ' + perimeter)
 }
+onMounted(() => {
+  initCircle()
+})
+
+defineExpose({
+  initCircle
+})
 </script>
 
 <style lang="scss" scoped>

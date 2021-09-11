@@ -4,26 +4,21 @@
   </svg>
 </template>
 
-<script>
-export default {
-  props: {
-    size: {
-      type: [Number, String],
-      default: 250
-    },
-    bgColor: {
-      type: String,
-      default: '#0f0'
-    },
-    round: {
-      type: [Number, String],
-      default: 20
-    }
+<script lang="ts" setup>
+const props = defineProps({
+  size: {
+    type: [Number, String],
+    default: 250
   },
-  setup(props) {
-    return { ...props }
+  bgColor: {
+    type: String,
+    default: '#0f0'
+  },
+  round: {
+    type: [Number, String],
+    default: 20
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

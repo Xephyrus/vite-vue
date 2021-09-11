@@ -2,9 +2,16 @@
   <div class="calendar-header clear">
     <div v-if="headOptions.type === 'combination'" class="calendar-box">
       <div class="calendar-content" :style="{ textAlign: headStyle.combination }">
-        <span class="calendar-prev" @click="emit('monthChange', -1)"><svg-icon name="prev"></svg-icon></span>
+        <span class="calendar-prev" @click="emit('monthChange', -1)"
+          ><svg-icon name="prev"></svg-icon
+        ></span>
         <span class="calendar-headDate" @click="emit('handleToday')">{{ headOptions.date }}</span>
-        <span class="calendar-next" style="transform: rotateY(180deg);" @click="emit('monthChange', 1)"><svg-icon name="prev"></svg-icon></span>
+        <span
+          class="calendar-next"
+          style="transform: rotateY(180deg)"
+          @click="emit('monthChange', 1)"
+          ><svg-icon name="prev"></svg-icon
+        ></span>
       </div>
     </div>
     <div v-else class="calendar-box">
@@ -17,42 +24,41 @@
         今天
       </span>
       <div class="calendar-content dispersion" :style="{ float: headStyle.checkBtn }">
-        <span class="calendar-prev" @click="emit('monthChange', -1)"><svg-icon name="prev"></svg-icon></span>
-        <span class="calendar-next" style="transform: rotateY(180deg);" @click="emit('monthChange', 1)"><svg-icon name="prev"></svg-icon></span>
+        <span class="calendar-prev" @click="emit('monthChange', -1)"
+          ><svg-icon name="prev"></svg-icon
+        ></span>
+        <span
+          class="calendar-next"
+          style="transform: rotateY(180deg)"
+          @click="emit('monthChange', 1)"
+          ><svg-icon name="prev"></svg-icon
+        ></span>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+export default defineComponent({
+  name: 'CalendarHeader'
+})
+</script>
+
+<script lang="ts" setup>
 import SvgIcon from '../SvgIcon.vue'
 import { ref, defineComponent } from 'vue'
-export default defineComponent({
-  name: 'CalendarHeader',
-  components: {
-    SvgIcon
-  },
-  props: {
-    headOptions: {
-      type: Object,
-      default: {
-        style: {}
-      }
+
+const props = defineProps({
+  headOptions: {
+    type: Object,
+    default: {
+      style: {}
     }
-  },
-  emits: ['monthChange', 'handleToday'],
-  setup(props, context) {
-    let { style } = props.headOptions
-    const headStyle = ref(style)
-    const { emit } = context
-
-    // onMounted(() => {
-    //   headStyle.value = style
-    // })
-
-    return { headStyle, emit }
   }
 })
+const emit = defineEmits(['monthChange', 'handleToday'])
+let { style } = props.headOptions
+const headStyle = ref(style)
 </script>
 
 <style lang="scss" scoped>

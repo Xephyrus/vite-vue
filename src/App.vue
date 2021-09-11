@@ -7,31 +7,26 @@
 </template>
 
 <script lang="ts">
+export default defineComponent({
+  name: 'App'
+})
+</script>
+
+<script lang="ts" setup>
 import { defineComponent, ref, onMounted } from 'vue'
 import HeaderNav from './components/HeaderNav.vue'
 import Loader from './components/Loader.vue'
 import ToTop from './components/ToTop.vue'
 import Bus from './utils/bus'
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HeaderNav,
-    Loader,
-    ToTop
-  },
-  setup() {
-    const loading = ref(false)
+const loading = ref(false)
 
-    onMounted(() => {
-      Bus.$on('loading', () => {
-        console.log(loading.value)
-        loading.value = !loading.value
-        console.log(loading.value)
-      })
-    })
-    return { loading }
-  }
+onMounted(() => {
+  Bus.$on('loading', () => {
+    console.log(loading.value)
+    loading.value = !loading.value
+    console.log(loading.value)
+  })
 })
 </script>
 

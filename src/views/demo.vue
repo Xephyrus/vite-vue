@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import Chrome from '@/components/div/Chrome.vue'
 import Pics from '@/components/div/Pics.vue'
 import Triangle from '@/components/geometry/triangle.vue'
@@ -34,32 +34,14 @@ import Cloud from '../components/div/Cloud.vue'
 import House from '../components/div/House.vue'
 import Wallet from '../components/div/Wallet.vue'
 import Magnifier from '../components/Magnifier.vue'
-export default defineComponent({
-  components: {
-    House,
-    Magnifier,
-    Wallet,
-    Cloud,
-    Breeno,
-    Browser,
-    Camera,
-    Triangle,
-    SvgTriangle,
-    Pics,
-    Chrome,
-    Game
-  },
-  setup(props) {
-    const n = ref(0)
-    const num = () => {
-      console.log(111)
-    }
-    const addOne = () => {
-      n.value++
-    }
-    return { num, n, addOne }
-  }
-})
+
+const n = ref(0)
+const num = () => {
+  console.log(111)
+}
+const addOne = () => {
+  n.value++
+}
 </script>
 
 <style lang="scss" scoped>

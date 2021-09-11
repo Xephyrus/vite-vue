@@ -1,11 +1,15 @@
 <template>
   <figure class="safari">
     <div class="marks">
-      <span v-for="i in 60" :key="i" :style="{ '--rotate-deg': 6 * i - 6 + 'deg' }"></span>
+      <span v-for="i in 60" :key="i" :style="setStyle(i)"></span>
     </div>
     <div class="pointer"></div>
   </figure>
 </template>
+
+<script setup lang="ts">
+const setStyle = (i: number) => ({ '--rotate-deg': 6 * i - 6 + 'deg' } as any)
+</script>
 
 <style lang="scss" scoped>
 @keyframes rotate {

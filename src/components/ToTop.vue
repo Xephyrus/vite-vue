@@ -4,23 +4,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
 import { onMounted, ref } from '@vue/runtime-core'
 import Astronaut from './Astronaut.vue'
 import { toTop } from '@/utils/tools'
-export default {
-  components: { Astronaut },
-  setup(props) {
-    const showTop = ref(window.scrollY > 20)
-    const onScroll = () => {
-      showTop.value = window.scrollY > 20
-    }
-    onMounted(() => {
-      window.addEventListener('scroll', onScroll)
-    })
-    return { showTop, onScroll, toTop }
-  }
+
+const showTop = ref(window.scrollY > 20)
+const onScroll = () => {
+  showTop.value = window.scrollY > 20
 }
+onMounted(() => {
+  window.addEventListener('scroll', onScroll)
+})
 </script>
 
 <style lang="scss" scoped>

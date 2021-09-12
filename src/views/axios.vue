@@ -66,8 +66,8 @@
 
 <script lang="ts">
 export default defineComponent({
-name: 'Axios',
-});
+  name: 'Axios'
+})
 </script>
 
 <script lang="ts" setup>
@@ -76,19 +76,19 @@ import { defineComponent, onMounted, reactive, computed } from 'vue'
 import { getSearchList, getOnlineList, getSearchDefault } from '../api/bilibili'
 
 const state = reactive<any>({
-      result: []
-    })
-    const list = computed<any[]>(() => state.result)
+  result: []
+})
+const list = computed<any[]>(() => state.result)
 
-    onMounted(() => {
-      const [list, online, defaults]: Promise<any>[] = [
-        getSearchList({ keyword: '高达', search_type: 'video' }),
-        getOnlineList(),
-        getSearchDefault()
-      ]
-      Promise.all([list, online, defaults]).then((res: any[]) => {
-        const [a, b, c] = res
-        /*Vue只能使用如下数组方法，才能响应式更新视图：
+onMounted(() => {
+  const [list, online, defaults]: Promise<any>[] = [
+    getSearchList({ keyword: '高达', search_type: 'video' }),
+    getOnlineList(),
+    getSearchDefault()
+  ]
+  Promise.all([list, online, defaults]).then((res: any[]) => {
+    const [a, b, c] = res
+    /*Vue只能使用如下数组方法，才能响应式更新视图：
           (push
           pop
           shift
@@ -97,26 +97,18 @@ const state = reactive<any>({
           sort
           reverse)
         */
-        state.result = a.data.data.result.map((item: any) => item.pic) // 直接赋值不会触发
-      })
-    })
+    state.result = a.data.data.result.map((item: any) => item.pic) // 直接赋值不会触发
+  })
+})
 </script>
 
 <style lang="scss" scoped>
 @import '../style/mixin.scss';
 
-@font-face {
-  font-family: test;
-  src: url('@/assets/fonts/testFont.ttf');
-}
 .axios {
   main {
     .para {
       font-size: 36px;
-
-      &.test {
-        font-family: test;
-      }
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <figure class="album">
-    <span v-for="(item, i) in list" :key="i" :style="useStyle(item, i)"></span>
+    <span v-for="(item, i) in list" :key="i" :style="setStyle(item, i)"></span>
   </figure>
 </template>
 
@@ -41,7 +41,7 @@ const list = ref<any[]>([
   }
 ])
 
-const useStyle = (item: any, i: any) => {
+const setStyle = (item: any, i: any) => {
   return { '--i': 45 * i + 'deg', '--c': item.color } as any
 }
 </script>

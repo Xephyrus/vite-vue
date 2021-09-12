@@ -14,12 +14,19 @@
 import triangle from '../svg/triangle.vue'
 import { reactive } from 'vue'
 
+const props = defineProps({
+  size: {
+    type: [Number, String],
+    default: 10
+  }
+})
+
 const state = reactive({
   triangles: [
     {
-      size: 200,
+      size: 20 * +props.size,
       bgColor: '#e7ddff',
-      round: 40,
+      round: 4 * +props.size,
       style: {
         left: '1em',
         bottom: '5.6em',
@@ -27,12 +34,12 @@ const state = reactive({
       }
     },
     {
-      size: 120,
+      size: 12 * +props.size,
       bgColor: '#ffffff',
-      round: 40,
+      round: 4 * +props.size,
       style: {
         right: '1.8em',
-        bottom: '6em',
+        bottom: '6.2em',
         transform: 'translateY(3em)'
       }
     }
@@ -42,7 +49,7 @@ const state = reactive({
 
 <style lang="scss" scoped>
 .pics {
-  font-size: 20px;
+  font-size: calc(v-bind(size) * 2px);
   width: 15em;
   height: 15em;
   border-radius: 25%;

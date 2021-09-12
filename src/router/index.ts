@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '@/views/home.vue'
 import Vuex from '@/views/vuex.vue'
 import Demo from '@/views/demo.vue'
@@ -38,9 +38,13 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
   linkActiveClass: 'is-active'
+})
+
+router.afterEach((to, from) => {
+  window.scrollTo(0, 0)
 })
 
 export default router

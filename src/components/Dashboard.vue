@@ -51,6 +51,7 @@ $progress: #1e9aff;
 .dashboard {
   font-size: 6px;
   width: 50em;
+  margin: 0 auto;
   position: relative;
 
   .main {

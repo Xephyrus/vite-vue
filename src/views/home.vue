@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <github></github>
+    <div class="scanner">
+      <scanning></scanning>
+    </div>
     <el-carousel>
       <el-carousel-item v-for="(item, index) in refData.baiduH5" :key="index">
         <div class="slide-wrap">
@@ -31,34 +34,46 @@
       <div class="tpm-solution__summary">
         <div class="tpm-solution__summary-ani"></div>
       </div>
+      <div class="nav-icons">
+        <animate-icon
+          v-for="(item, index) in refData.navIcon"
+          :key="index"
+          v-bind="item"
+        ></animate-icon>
+      </div>
     </div>
     <process-bar ref="healthy" :config="refData.config1"></process-bar>
     <process-bar ref="abnormal" :config="refData.config"></process-bar>
     <div class="mb-20">
+      <el-radio-group v-model="data" class="mb-20">
+        <el-radio-button label="healthy">健康数据</el-radio-button>
+        <el-radio-button label="abnormal">异常数据</el-radio-button>
+      </el-radio-group>
+      <div></div>
       <el-input v-model="refData.params.ref" class="width-200"></el-input>
-      <el-button @click="showLoading">loading</el-button>
-      <el-button @click="addTen" type="primary">+10</el-button>
+      <el-button class="font-lcd" @click="showLoading">loading</el-button>
+      <el-button class="font-lcd" type="primary" @click="addMinus(-1)">-1</el-button>
+      <el-button class="font-lcd" type="primary" @click="addMinus(1)">+1</el-button>
+      <el-button class="font-lcd" type="primary" @click="addMinus(-10)">-10</el-button>
+      <el-button class="font-lcd" type="primary" @click="addMinus(10)">+10</el-button>
     </div>
-    <div class="bg-dark">
-      <scanning></scanning>
-    </div>
-    <div class="bg-dark flex-between mb-20">
-      <radar></radar>
-      <google></google>
-    </div>
-    <div class="bg-dark flex-between mb-20">
-      <jue-jin></jue-jin>
+
+    <div class="bg-dark mb-20">
       <dashboard></dashboard>
     </div>
+
     <div class="bg-white">
       <cube></cube>
     </div>
+
     <div class="bg-white">
       <masonry></masonry>
     </div>
+
     <div class="bg-light">
       <skeleton></skeleton>
     </div>
+
     <div class="bg-dark flex-between mb-20">
       <safari></safari>
       <album></album>
@@ -99,9 +114,10 @@ import Scanning from '@/components/div/Scanning.vue'
 import AnimateIcon from '@/components/AnimateIcon.vue'
 import AliIcon from '@/components/AliIcon.vue'
 import WyIcon from '../components/WyIcon.vue'
-import Github from '@/components/svg/Github.vue'
+import Github from '@/components/svg/github.vue'
 
 const abnormal = ref<any>(null)
+const healthy = ref<any>(null)
 const refData = reactive({
   config: {
     title: '问题数据',
@@ -197,6 +213,20 @@ const refData = reactive({
     }
   ],
   wyIcons: [{ type: 'a' }, { type: 'b' }, { type: 'c' }],
+  navIcon: [
+    { icon: 'game', text: '游戏' },
+    { icon: 'education', text: '教育' },
+    { icon: 'medical', text: '医疗' },
+    { icon: 'applets', text: '小程序' },
+    { icon: 'private-cloud', text: '专有云' },
+    { icon: 'finance', text: '金融' },
+    { icon: 'audio&video', text: '音视频' },
+    { icon: 'manufacturing', text: '医疗' },
+    { icon: 'safety', text: '安全' },
+    { icon: 'bigData', text: '大数据' },
+    { icon: 'cloud-payment', text: '云支付' },
+    { icon: 'cultural&tourism', text: '文旅' }
+  ],
   baiduH5: [
     {
       bgImage: 'https://fex.bdstatic.com/h5static/services/store/images/3dd03cd5.S01.png',
@@ -216,14 +246,23 @@ const refData = reactive({
   ]
 })
 
-const addTen = () => {
-  refData.config.percentage += 10
-  if (refData.config.percentage > 100) {
-    refData.config.percentage = 100
+const data = ref<string>('healthy')
+
+const addMinus = (n: number) => {
+  let value: any
+  if (data.value === 'healthy') {
+    value = healthy.value
+    refData.config1.percentage += n
+    if (refData.config1.percentage >= 100) refData.config1.percentage = 100
+    if (refData.config1.percentage <= 0) refData.config.percentage = 0
+  } else if (data.value === 'abnormal') {
+    value = abnormal.value
+    refData.config.percentage += n
+    if (refData.config.percentage >= 100) refData.config.percentage = 100
+    if (refData.config.percentage <= 0) refData.config.percentage = 0
+  } else {
+    return false
   }
-  let value: any = abnormal.value
-  console.log(abnormal)
-  console.log(value)
   value.initCircle()
 }
 
@@ -277,7 +316,7 @@ const showLoading = () => {
       background-repeat: no-repeat;
       background-position: 100% 100%;
       background-size: 250px auto;
-      background-image: url('@/assets/images/ani/bg-backc58.png');
+      background-image: url('@/assets/images/bg-backc58.png');
     }
 
     .tpm-solution__summary-ani {
@@ -286,7 +325,7 @@ const showLoading = () => {
       bottom: 90px;
       width: 215px;
       height: 216px;
-      background-image: url('@/assets/images/ani/ani-spriteeef.png');
+      background-image: url('@/assets/images/ani-spriteeef.png');
       background-size: 100% auto;
       background-position: top;
 
@@ -298,6 +337,19 @@ const showLoading = () => {
   .icon {
     margin-bottom: 40px;
   }
+  .nav-icons {
+    display: flex;
+    width: 50%;
+    flex-wrap: wrap;
+  }
+}
+
+.scanner {
+  position: fixed;
+  right: 50%;
+  margin-right: 500px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .bg-image {
   width: 100%;
@@ -338,13 +390,7 @@ const showLoading = () => {
 .el-carousel__item {
   background-color: #d3dce6;
 }
-
-// .el-carousel__item:nth-child(2n) {
-//   background-color: #99a9bf;
-// }
-
 .el-carousel__item:nth-child(2n + 1) {
-  // background-color: #d3dce6;
   .slide-wrap {
     -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
     flex-direction: row-reverse;

@@ -78,7 +78,6 @@ const initCircle = () => {
   let percent: number = props.config.percentage / 100
   let value: any = circle.value
   let perimeter: number = value.getTotalLength()
-  // console.log(perimeter * percent + ', ' + perimeter)
   value.setAttribute('stroke-dasharray', perimeter * percent + ', ' + perimeter)
 }
 onMounted(() => {

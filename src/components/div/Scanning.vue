@@ -1,7 +1,7 @@
 <template>
   <div class="scan-wrap">
     <div class="scan"></div>
-    <img v-if="image" :src="image" alt />
+    <img v-if="image" src="@/assets/images/yanzu.jpg" alt />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ name: 'Scanning',
 <script lang="ts" setup>
 import { defineComponent, ref } from 'vue'
 
-const image = ref<string>('')
+const image = ref<string>('/src/assets/images/yanzu.jpg')
 </script>
 
 <style lang="scss" scoped>

@@ -254,7 +254,7 @@ const addMinus = (n: number) => {
     value = healthy.value
     refData.config1.percentage += n
     if (refData.config1.percentage >= 100) refData.config1.percentage = 100
-    if (refData.config1.percentage <= 0) refData.config.percentage = 0
+    if (refData.config1.percentage <= 0) refData.config1.percentage = 0
   } else if (data.value === 'abnormal') {
     value = abnormal.value
     refData.config.percentage += n

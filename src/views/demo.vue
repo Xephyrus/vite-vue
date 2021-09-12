@@ -9,7 +9,10 @@
       <pics size="4"></pics>
       <chrome size="4"></chrome>
     </div>
-    <div class="bg-dark flex-between mb-20"><jue-jin style="font-size: 8px"></jue-jin></div>
+    <div class="bg-dark flex-between mb-20">
+      <jue-jin style="font-size: 8px"></jue-jin>
+      <store></store>
+    </div>
     <!-- <div class="bg-light flex-between">
       <triangle></triangle>
       <svg-triangle></svg-triangle>
@@ -33,6 +36,7 @@ import Cloud from '../components/div/Cloud.vue'
 import Wallet from '../components/div/Wallet.vue'
 import Magnifier from '../components/Magnifier.vue'
 import JueJin from '@/components/div/JueJin.vue'
+import Store from '@/components/div/store.vue'
 </script>
 
 <style lang="scss" scoped>

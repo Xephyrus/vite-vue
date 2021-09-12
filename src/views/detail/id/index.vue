@@ -44,7 +44,7 @@ const componentId = ref(route.params.type)
 onBeforeRouteUpdate((to: any) => {
   state.id = route.params?.id ?? 0
   state.userParams.mid = route.params?.id ?? 0
-  console.log(route.params.type)
+  // console.log(route.params.type)
   let type: string = to.params.type
   componentId.value = type
   getUserInfo(state.userParams).then((res: any) => {

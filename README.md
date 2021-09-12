@@ -1,5 +1,6 @@
 # vite-vue
 这是本人做的第一个vue3的项目, 采用了vue3 + ts + vite + element plus的开发架构
+建议使用尤大大强烈推介的Volar进行开发
 
 ```bash
 / // 根目录

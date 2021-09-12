@@ -11,7 +11,8 @@
     </div>
     <div class="bg-dark flex-between mb-20">
       <jue-jin style="font-size: 8px"></jue-jin>
-      <store></store>
+      <store style="font-size: 4px"></store>
+      <weather style="font-size: 4px"></weather>
     </div>
     <!-- <div class="bg-light flex-between">
       <triangle></triangle>
@@ -36,7 +37,8 @@ import Cloud from '../components/div/Cloud.vue'
 import Wallet from '../components/div/Wallet.vue'
 import Magnifier from '../components/Magnifier.vue'
 import JueJin from '@/components/div/JueJin.vue'
-import Store from '@/components/div/store.vue'
+import Store from '@/components/div/Store.vue'
+import Weather from '@/components/div/Weather.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -44,8 +46,8 @@ import Store from '@/components/div/store.vue'
 .demo {
   // padding-top: 200px;
   padding-bottom: 200px;
-  padding-left: 100px;
-  padding-right: 100px;
+  // padding-left: 100px;
+  // padding-right: 100px;
 
   figure {
     margin-bottom: 20px;

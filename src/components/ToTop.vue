@@ -1,5 +1,5 @@
 <template>
-  <div v-show="showTop" class="to-top" @click="toTop">
+  <div v-show="showTop" class="to-top" @click="toTop()">
     <astronaut></astronaut>
   </div>
 </template>

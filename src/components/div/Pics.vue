@@ -26,7 +26,7 @@ const state = reactive({
     {
       size: 20 * +props.size,
       bgColor: '#e7ddff',
-      round: 4 * +props.size,
+      round: 8 * +props.size,
       style: {
         left: '1em',
         bottom: '5.6em',
@@ -36,10 +36,10 @@ const state = reactive({
     {
       size: 12 * +props.size,
       bgColor: '#ffffff',
-      round: 4 * +props.size,
+      round: 8 * +props.size,
       style: {
         right: '1.8em',
-        bottom: '6.2em',
+        bottom: '6em',
         transform: 'translateY(3em)'
       }
     }

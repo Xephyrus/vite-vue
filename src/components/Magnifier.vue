@@ -11,7 +11,7 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { defineComponent, reactive, ref, onMounted } from 'vue'
+import { onMounted, defineComponent, reactive, ref } from 'vue'
 
 const props = defineProps({
   url: {

@@ -13,6 +13,8 @@
       <jue-jin style="font-size: 8px"></jue-jin>
       <store style="font-size: 4px"></store>
       <weather style="font-size: 4px"></weather>
+      <react style="font-size: 4px"></react>
+      <vue style="font-size: 4px"></vue>
     </div>
     <!-- <div class="bg-light flex-between">
       <triangle></triangle>
@@ -39,6 +41,8 @@ import Magnifier from '../components/Magnifier.vue'
 import JueJin from '@/components/div/JueJin.vue'
 import Store from '@/components/div/Store.vue'
 import Weather from '@/components/div/Weather.vue'
+import React from '@/components/div/React.vue'
+import Vue from '@/components/div/Vue.vue'
 </script>
 
 <style lang="scss" scoped>

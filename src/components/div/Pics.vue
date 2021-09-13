@@ -4,7 +4,7 @@
       class="triangles"
       v-for="(item, index) in state.triangles"
       :key="index"
-      :style="item.style"
+      :style="item.styles"
       v-bind="item"
     ></triangle>
   </figure>
@@ -27,7 +27,7 @@ const state = reactive({
       size: 20 * +props.size,
       bgColor: '#e7ddff',
       round: 8 * +props.size,
-      style: {
+      styles: {
         left: '1em',
         bottom: '5.6em',
         transform: 'translateY(3em)'
@@ -37,7 +37,7 @@ const state = reactive({
       size: 12 * +props.size,
       bgColor: '#ffffff',
       round: 8 * +props.size,
-      style: {
+      styles: {
         right: '1.8em',
         bottom: '6em',
         transform: 'translateY(3em)'

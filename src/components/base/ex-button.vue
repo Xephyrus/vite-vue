@@ -1,7 +1,7 @@
-<template>
-  <button class="ex-button" :class="[type ? 'ex-button--' + type : '']">
-    <span><slot></slot></span>
-  </button>
+<template lang="pug">
+button.ex-button(:class="[type ? 'ex-button--' + type : '']")
+  span
+    slot
 </template>
 
 <script lang="ts">

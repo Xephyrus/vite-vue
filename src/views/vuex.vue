@@ -12,10 +12,9 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { defineComponent, onMounted, reactive } from 'vue'
+import { defineComponent, reactive } from 'vue'
 import CommentBox from '@/components/CommentBox.vue'
 import ExDatePicker from '@/components/ExDatePicker/index.vue'
-import { numberToChinese } from '@/utils/number'
 
 const state = reactive({
   calendarArr: {
@@ -30,10 +29,6 @@ const state = reactive({
     },
     calendarData: []
   }
-})
-
-onMounted(() => {
-  console.log(numberToChinese(10530))
 })
 </script>
 

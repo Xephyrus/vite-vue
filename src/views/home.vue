@@ -4,6 +4,13 @@
     <div class="scanner">
       <scanning></scanning>
     </div>
+
+    <a class="gitee-link" href="https://gitee.com/zhu-maosheng/vite-vue"
+      ><div class="gitee">
+        <div class="gitee-icon"></div>
+      </div>
+    </a>
+
     <el-carousel>
       <el-carousel-item v-for="(item, index) in refData.baiduH5" :key="index">
         <div class="slide-wrap">
@@ -394,6 +401,28 @@ const showLoading = () => {
   .slide-wrap {
     -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
     flex-direction: row-reverse;
+  }
+}
+
+.gitee {
+  position: fixed;
+  right: 0;
+  top: 80px;
+  background: #000;
+  padding: 12px;
+  width: 45px;
+  border-radius: 45px 5px 45px 5px;
+  transition: 0.3s;
+
+  &:hover {
+    transition: 0.3s;
+    width: 143px;
+  }
+  &-icon {
+    width: 143px;
+    height: 45px;
+    background-image: url(https://gitee.com/static/images/logo.svg);
+    background-size: cover;
   }
 }
 </style>

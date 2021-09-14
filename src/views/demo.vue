@@ -15,6 +15,8 @@
       <weather style="font-size: 4px"></weather>
       <react style="font-size: 4px"></react>
       <vue style="font-size: 4px"></vue>
+      <angular style="font-size: 4px"></angular>
+      <baidu-cloud style="font-size: 4px"></baidu-cloud>
     </div>
     <!-- <div class="bg-light flex-between">
       <triangle></triangle>
@@ -43,6 +45,8 @@ import Store from '@/components/div/Store.vue'
 import Weather from '@/components/div/Weather.vue'
 import React from '@/components/div/React.vue'
 import Vue from '@/components/div/Vue.vue'
+import Angular from '@/components/div/Angular.vue'
+import BaiduCloud from '@/components/div/BaiduCloud.vue'
 </script>
 
 <style lang="scss" scoped>

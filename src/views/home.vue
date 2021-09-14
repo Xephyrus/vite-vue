@@ -411,7 +411,7 @@ const showLoading = () => {
   background: #000;
   padding: 12px;
   width: 45px;
-  border-radius: 45px 5px 45px 5px;
+  border-radius: 45px;
   transition: 0.3s;
 
   &:hover {

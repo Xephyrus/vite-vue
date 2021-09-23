@@ -102,7 +102,7 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { reactive, defineComponent, ref, onBeforeUnmount, useAttrs, useSlots } from 'vue'
+import { reactive, defineComponent, ref } from 'vue'
 import ProcessBar from '@/components/svg/process-bar.vue'
 import Clock from '@/components/div/Clock.vue'
 import Bus from '../utils/bus'
@@ -113,10 +113,7 @@ import Cards from '@/components/div/Cards.vue'
 import Skeleton from '@/components/div/Skeleton.vue'
 import Masonry from '@/components/div/Masonry.vue'
 import Cube from '@/components/div/Cube.vue'
-import JueJin from '@/components/div/JueJin.vue'
 import Dashboard from '@/components/Dashboard.vue'
-import Radar from '@/components/div/Radar.vue'
-import Google from '@/components/div/Google.vue'
 import Scanning from '@/components/div/Scanning.vue'
 import AnimateIcon from '@/components/AnimateIcon.vue'
 import AliIcon from '@/components/AliIcon.vue'
@@ -418,6 +415,7 @@ const showLoading = () => {
     transition: 0.3s;
     width: 143px;
   }
+
   &-icon {
     width: 143px;
     height: 45px;

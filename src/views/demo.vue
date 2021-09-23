@@ -17,6 +17,7 @@
       <vue style="font-size: 4px"></vue>
       <angular style="font-size: 4px"></angular>
       <baidu-cloud style="font-size: 4px"></baidu-cloud>
+      <baidu style="font-size: 4px"></baidu>
     </div>
     <!-- <div class="bg-light flex-between">
       <triangle></triangle>
@@ -47,6 +48,7 @@ import React from '@/components/div/React.vue'
 import Vue from '@/components/div/Vue.vue'
 import Angular from '@/components/div/Angular.vue'
 import BaiduCloud from '@/components/div/BaiduCloud.vue'
+import Baidu from '@/components/div/Baidu.vue'
 </script>
 
 <style lang="scss" scoped>

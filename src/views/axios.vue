@@ -97,7 +97,7 @@ onMounted(() => {
           sort
           reverse)
         */
-    state.result = a.data.data.result.map((item: any) => item.pic) // 直接赋值不会触发
+    state.result = a.data.data.result.map((item: any) => item.pic)
   })
 })
 </script>

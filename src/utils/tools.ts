@@ -1,4 +1,7 @@
 // 页面滚动到顶部
+
+import { arrayBuffer } from 'stream/consumers'
+
 // by maosheng
 export const toTop = (behavior: ScrollBehavior = 'smooth'): void => {
   window.scrollTo({

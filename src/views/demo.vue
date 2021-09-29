@@ -1,5 +1,8 @@
 <template>
   <div class="demo">
+    <div class="bg">
+      <pixiel></pixiel>
+    </div>
     <div class="bg-dark flex-between mb-20">
       <wallet style="font-size: 12px"></wallet>
       <cloud style="font-size: 12px"></cloud>
@@ -23,18 +26,16 @@
       <triangle></triangle>
       <svg-triangle></svg-triangle>
     </div> -->
-    <div class="bg">
-      <magnifier></magnifier>
-    </div>
+    <magnifier></magnifier>
   </div>
 </template>
 
 <script lang="ts" setup>
 import Chrome from '@/components/div/Chrome.vue'
 import Pics from '@/components/div/Pics.vue'
-import Triangle from '@/components/geometry/triangle.vue'
-import SvgTriangle from '@/components/svg/triangle.vue'
-import { ref } from 'vue'
+// import Triangle from '@/components/geometry/triangle.vue'
+// import SvgTriangle from '@/components/svg/triangle.vue'
+// import { ref } from 'vue'
 import Breeno from '../components/div/Breeno.vue'
 import Browser from '../components/div/Browser.vue'
 import Camera from '../components/div/Camera.vue'
@@ -49,6 +50,7 @@ import Vue from '@/components/div/Vue.vue'
 import Angular from '@/components/div/Angular.vue'
 import BaiduCloud from '@/components/div/BaiduCloud.vue'
 import Baidu from '@/components/div/Baidu.vue'
+import Pixiel from '@/components/Pixiel.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -61,6 +63,10 @@ import Baidu from '@/components/div/Baidu.vue'
 
   figure {
     margin-bottom: 20px;
+  }
+
+  .bg {
+    padding: 30px;
   }
 }
 </style>

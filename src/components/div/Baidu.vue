@@ -25,6 +25,79 @@ import { ref } from 'vue'
 </script>
 
 <style lang="scss" scoped>
+@keyframes baidu {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(0.9);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  55% {
+    transform: rotate(5deg);
+  }
+
+  60% {
+    transform: rotate(-5deg);
+  }
+
+  65% {
+    transform: rotate(5deg);
+  }
+
+  70% {
+    transform: rotate(-5deg);
+  }
+  72.5% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes red-blue {
+  0% {
+    transform: scaleX(0);
+  }
+
+  20% {
+    transform: scaleX(1);
+  }
+
+  90% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+  }
+}
+
 .baidu {
   font-size: 10px;
   width: 30em;
@@ -39,6 +112,7 @@ import { ref } from 'vue'
   .icon {
     width: 20em;
     height: 20em;
+    animation: baidu 2s infinite;
     &:last-of-type {
       fill: #407af5;
     }
@@ -52,7 +126,8 @@ import { ref } from 'vue'
     background: linear-gradient(to right, #dd3a41 0%, #dd3a41 50%, #407af5 50%, #407af5);
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    margin-left: -5em;
+    animation: red-blue 2s infinite ease-in-out;
   }
 }
 </style>

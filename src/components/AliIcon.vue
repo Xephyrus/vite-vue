@@ -93,7 +93,7 @@ const onMouseLeave = () => {
 
 <style lang="scss" scoped>
 .ali-icon-wrap {
-  cursor: pointer;
+  cursor: url('@/assets/images/vite-rotate.png'), pointer;
   padding: 0 20px 20px;
   text-align: center;
   line-height: 24px;

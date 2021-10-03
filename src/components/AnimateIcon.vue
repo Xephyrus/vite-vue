@@ -142,7 +142,7 @@ const width = ref<string>('100px')
 
 .tpm-multi-tabs__item-cont {
   position: relative;
-  cursor: pointer;
+  cursor: url('@/assets/images/vite-rotate.png'), pointer;
   padding: 0 20px 20px;
   text-align: center;
   font-size: 16px;

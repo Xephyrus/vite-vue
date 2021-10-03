@@ -24,3 +24,20 @@
 
 ```
 
+安装依赖
+```bash
+yarn
+```
+
+项目启动
+```bash
+yarn dev
+```
+
+项目打包
+```bash
+yarn build
+```
+
+线上地址: http://119.29.160.22
+gitee地址: https://gitee.com/zhu-maosheng/vite-vue

@@ -41,23 +41,16 @@ onMounted(() => {
   margin-left: 510px;
   margin-bottom: 20px;
   bottom: 0;
-  // cursor: pointer;
-  cursor: url('@/assets/images/vite-rotate.png'), pointer;
-  // bottom: 50px;
-  // width: 150px;
-  // height: 174px;
-  // left: 50%;
-  // cursor: pointer;
-  // z-index: 998;
-
+  cursor: url('@/assets/images/red-rocket.png'), pointer;
   .rocket {
     width: 150px;
     height: 174px;
     background-position: 0 0;
     text-align: center;
-    background-image: url(//s1.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/rocket_frame.f7563b84.png);
+    background-image: url(//s1.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/rocket_top.bcc748c3.png);
 
     &:hover {
+      background-image: url(//s1.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/rocket_frame.f7563b84.png);
       animation: rocket steps(1, start) 0.5s infinite;
     }
   }

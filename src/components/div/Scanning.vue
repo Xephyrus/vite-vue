@@ -1,14 +1,14 @@
 <template>
   <div class="scan-wrap">
     <div class="scan"></div>
-    <img v-if="image" src="@/assets/images/yanzu.jpg" alt />
+    <img v-if="image" src="@/assets/images/yanzu.jpg" alt="头像" />
   </div>
 </template>
 
 <script lang="ts">
 export default defineComponent({
-name: 'Scanning',
-});
+  name: 'Scanning'
+})
 </script>
 
 <script lang="ts" setup>

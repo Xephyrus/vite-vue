@@ -1,8 +1,14 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-27 13:15:27
+ * @LastEditTime: 2021-10-08 11:58:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \prismd:\code\vite-vue\src\views\demo.vue
+-->
 <template>
   <div class="demo">
-    <div class="bg">
-      <pixiel></pixiel>
-    </div>
+    <thundery></thundery>
     <div class="bg-dark flex-between mb-20">
       <wallet style="font-size: 12px"></wallet>
       <cloud style="font-size: 12px"></cloud>
@@ -21,6 +27,9 @@
       <angular style="font-size: 4px"></angular>
       <baidu-cloud style="font-size: 4px"></baidu-cloud>
       <baidu style="font-size: 4px"></baidu>
+    </div>
+    <div class="bg">
+      <pixiel></pixiel>
     </div>
     <!-- <div class="bg-light flex-between">
       <triangle></triangle>
@@ -51,6 +60,7 @@ import Angular from '@/components/div/Angular.vue'
 import BaiduCloud from '@/components/div/BaiduCloud.vue'
 import Baidu from '@/components/div/Baidu.vue'
 import Pixiel from '@/components/Pixiel.vue'
+import Thundery from '@/components/weather/thundery.vue'
 </script>
 
 <style lang="scss" scoped>

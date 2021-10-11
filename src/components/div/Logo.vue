@@ -127,8 +127,8 @@
 import triangle from '../geometry/triangle.vue'
 
 const props = defineProps({
-    name: String
-  });
+  name: String
+})
 </script>
 
 <style lang="scss" scoped>

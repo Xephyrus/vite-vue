@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-08-09 22:58:45
+ * @LastEditTime: 2021-10-07 11:24:57
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \prismd:\code\vite-vue\vite.config.ts
+ */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { createSvg } from './src/icons/index'
@@ -30,11 +38,11 @@ export default defineConfig({
           referer: 'https://www.bilibili.com',
           origin: 'https://www.bilibili.com'
         }
+      },
+      '/local': {
+        target: 'http://localhost:8000/',
+        rewrite: (path) => path.replace(/^\/local/, '')
       }
-      // '/local': {
-      //   target: 'http://localhost:8000/',
-      //   rewrite: (path) => path.replace(/^\/local/, '')
-      // }
     }
   }
 })

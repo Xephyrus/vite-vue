@@ -50,9 +50,11 @@ onMounted(() => {
   image.src = url
   image.onload = () => {
     const refMagnifier: any = magnifier.value
+    if (refMagnifier) {
+      state.ratio = image.width / refMagnifier.clientWidth
+    }
     // console.log(refMagnifier.clientWidth)
     // console.log(image.width)
-    state.ratio = image.width / refMagnifier.clientWidth
     // console.log(state.ratio)
   }
 })

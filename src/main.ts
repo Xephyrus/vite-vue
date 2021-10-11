@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-08-09 22:58:45
+ * @LastEditTime: 2021-10-07 11:38:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \prismd:\code\vite-vue\src\main.ts
+ */
 import { createApp } from 'vue'
 import App from './App.vue'
 import './style/index.scss'

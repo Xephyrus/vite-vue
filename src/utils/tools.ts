@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-26 15:50:06
- * @LastEditTime: 2021-10-05 22:06:27
+ * @LastEditTime: 2021-10-19 10:48:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \prismd:\code\vite-vue\src\utils\tools.ts
@@ -139,3 +139,18 @@ export const capitalize = (str: string): string => str.charAt(0).toUpperCase() +
  */
 export const dayDif = (start: Date, end: Date): number =>
   Math.ceil(Math.abs(end.getTime() - start.getTime()) / 86400000)
+
+/**
+ * @description: 获取min到min + max之间的随机数
+ * @param {number} min
+ * @param {number} max
+ * @return {*}
+ */
+export const randBetween = (min: number, max: number) => Math.floor(Math.random() * max) + min
+
+/**
+ * @description: 随机从数组中抽取一个元素
+ * @param {any} arr
+ * @return {*}
+ */
+export const randomOne = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)]

@@ -1,14 +1,17 @@
 <!--
  * @Author: your name
  * @Date: 2021-08-27 13:15:27
- * @LastEditTime: 2021-10-08 11:58:29
+ * @LastEditTime: 2021-10-19 16:35:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \prismd:\code\vite-vue\src\views\demo.vue
 -->
 <template>
   <div class="demo">
-    <thundery></thundery>
+    <!-- <thundery></thundery> -->
+    <h2 class="headline">Headline</h2>
+    <svg-icon name="wave" class="wave"></svg-icon>
+    <svg-icon name="wave"></svg-icon>
     <div class="bg-dark flex-between mb-20">
       <wallet style="font-size: 12px"></wallet>
       <cloud style="font-size: 12px"></cloud>
@@ -61,6 +64,7 @@ import BaiduCloud from '@/components/div/BaiduCloud.vue'
 import Baidu from '@/components/div/Baidu.vue'
 import Pixiel from '@/components/Pixiel.vue'
 import Thundery from '@/components/weather/thundery.vue'
+import SvgIcon from '@/components/SvgIcon.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -73,6 +77,23 @@ import Thundery from '@/components/weather/thundery.vue'
 
   figure {
     margin-bottom: 20px;
+  }
+
+  .wave {
+    width: 3 * 144px;
+    height: 3 * 62.3px;
+  }
+
+  .headline {
+    background-image: linear-gradient(180deg, #e7f0fd, #648fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 72px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
   }
 
   .bg {

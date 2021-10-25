@@ -14,7 +14,7 @@
         <div class="nav-item">
           <router-link :to="'/demo'">Demo</router-link>
         </div>
-        <div class="nav-item">
+        <!-- <div class="nav-item">
           <router-link :to="'/detail/33401891/doc'">DOC</router-link>
         </div>
         <div class="nav-item">
@@ -22,7 +22,7 @@
         </div>
         <div class="nav-item">
           <router-link :to="'/detail/33401891/xls'">XLS</router-link>
-        </div>
+        </div> -->
       </nav>
     </div>
   </div>

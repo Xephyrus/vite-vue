@@ -11,6 +11,7 @@
       </div>
     </a>
 
+    <!-- <ex-avatar src="http://localhost/src/assets/images/yanzu.jpg"></ex-avatar> -->
     <el-carousel>
       <el-carousel-item v-for="(item, index) in refData.baiduH5" :key="index">
         <div class="slide-wrap">

@@ -1,8 +1,17 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-09 22:58:45
+ * @LastEditTime: 2021-10-19 10:05:48
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \prismd:\code\vite-vue\src\App.vue
+-->
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <HeaderNav />
   <router-view class="router-view"></router-view>
   <Loader v-if="loading" />
+  <ClickBoard></ClickBoard>
   <to-top />
 </template>
 
@@ -18,6 +27,7 @@ import HeaderNav from './components/HeaderNav.vue'
 import Loader from './components/Loader.vue'
 import ToTop from './components/ToTop.vue'
 import Bus from './utils/bus'
+import ClickBoard from './components/ClickBoard.vue'
 
 const loading = ref(false)
 

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-26 15:50:06
- * @LastEditTime: 2021-10-19 10:48:06
+ * @LastEditTime: 2021-10-28 04:08:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \prismd:\code\vite-vue\src\utils\tools.ts
@@ -60,7 +60,7 @@ export function removeCookie(cookieName: string) {
 }
 
 /**
- * @description:
+ * @description: 清除cookie
  * @param {*}
  * @return {*}
  */
@@ -117,7 +117,7 @@ export const rgbToHex = (r: number, g: number, b: number): string =>
 export const copyToClipboard = (text: string) => navigator.clipboard.writeText(text)
 
 /**
- * @description:
+ * @description: 获取某一年的第X天
  * @param {Date} date
  * @return {*}
  */
@@ -154,3 +154,67 @@ export const randBetween = (min: number, max: number) => Math.floor(Math.random(
  * @return {*}
  */
 export const randomOne = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)]
+
+/**
+ * 注意：在javascript 中，我们一般直接使用函数利用闭包封装，这里会涉及this ，在typescript 中如果还是用函数写，this就会受到限制，无法通过编译的，所以可以使用class解决
+ */
+
+export class Debounced {
+  /**
+   * @description 页面防抖
+   * @param fn 要执行的函数
+   * @param waiting  时间
+   * @param immediate 是否在触发事件后 在时间段n开始，立即执行，否则是时间段n结束，才执行
+   */
+  static use(fn: Function, waiting: number = 1000, immediate: boolean = false) {
+    let timer: NodeJS.Timeout | null
+    return (...args: any) => {
+      if (timer) clearInterval(timer)
+      if (immediate) {
+        if (!timer) fn.apply(this, args)
+        timer = setTimeout(function () {
+          //n 秒内 多次触发事件,重新计算.timeer
+          timer = null //n 秒内没有触发事件 timeer 设置为null，保证了n 秒后能重新触发事件 flag = true = !timmer
+        }, waiting)
+      } else {
+        timer = setTimeout(() => {
+          fn.apply(this, args)
+        }, waiting)
+      }
+    }
+  }
+}
+
+export class Throttle {
+  /**
+   * @description 页面节流
+   * @param fn
+   * @param waiting
+   * @param immediate true 是启用时间戳版，false 是启用定时器版，作用一样
+   */
+  static use(fn: Function, waiting: number = 1000, immediate: boolean = true) {
+    //时间戳
+    if (immediate) {
+      let prevTime = 0
+      return (...args: any) => {
+        let nowTime = Date.now()
+        if (nowTime - prevTime >= waiting) {
+          fn.apply(this, args)
+          prevTime = nowTime
+        }
+      }
+    } else {
+      //定时器
+      let timer: NodeJS.Timeout | null
+      return (...args: any) => {
+        if (!timer) {
+          fn.apply(this, args)
+          timer = setTimeout(() => {
+            timer && clearTimeout(timer)
+            timer = null
+          }, waiting)
+        }
+      }
+    }
+  }
+}

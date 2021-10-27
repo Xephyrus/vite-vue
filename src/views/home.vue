@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" @click="play">
     <github></github>
     <div class="scanner">
       <scanning></scanning>
@@ -23,6 +23,9 @@
         </div>
       </el-carousel-item>
     </el-carousel>
+    <audio ref="refAudio" autoplay>
+      <source src="/onj001.mp3" type="audio/mpeg" />
+    </audio>
     <div class="bg flex mb-40">
       <animate-icon
         v-for="(item, index) in refData.iconList"
@@ -103,7 +106,7 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { reactive, defineComponent, ref } from 'vue'
+import { reactive, defineComponent, ref, getCurrentInstance, onMounted } from 'vue'
 import ProcessBar from '@/components/svg/process-bar.vue'
 import Clock from '@/components/div/Clock.vue'
 import Bus from '../utils/bus'
@@ -120,6 +123,8 @@ import AnimateIcon from '@/components/AnimateIcon.vue'
 import AliIcon from '@/components/AliIcon.vue'
 import WyIcon from '../components/WyIcon.vue'
 import Github from '@/components/svg/github.vue'
+import axios from 'axios'
+import { Debounced } from '@/utils/tools'
 
 const abnormal = ref<any>(null)
 const healthy = ref<any>(null)
@@ -270,12 +275,24 @@ const addMinus = (n: number) => {
   }
   value.initCircle()
 }
+const refAudio: any = ref(null)
+
+const play = () => {
+  Debounced.use(
+    () => {
+      let audio: HTMLAudioElement = refAudio.value
+      audio?.paused && audio.play()
+    },
+    3e4,
+    true
+  )()
+}
 
 const showLoading = () => {
   Bus.$emit('loading')
   setTimeout(() => {
     Bus.$emit('loading')
-  }, refData.params.ref * 1000)
+  }, refData.params.ref * 1e3)
 }
 </script>
 
@@ -411,11 +428,6 @@ const showLoading = () => {
   width: 45px;
   border-radius: 45px;
   transition: 0.3s;
-
-  &:hover {
-    transition: 0.3s;
-    width: 143px;
-  }
 
   &-icon {
     width: 143px;

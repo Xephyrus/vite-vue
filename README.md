@@ -40,4 +40,5 @@ yarn build
 ```
 
 线上地址: http://119.29.160.22  
+github地址: https://github.com/Xephyrus/vite-vue  
 gitee地址: https://gitee.com/zhu-maosheng/vite-vue

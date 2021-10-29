@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-26 15:50:06
- * @LastEditTime: 2021-10-28 04:08:05
+ * @LastEditTime: 2021-10-28 11:30:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \prismd:\code\vite-vue\src\utils\tools.ts
@@ -173,8 +173,8 @@ export class Debounced {
       if (immediate) {
         if (!timer) fn.apply(this, args)
         timer = setTimeout(function () {
-          //n 秒内 多次触发事件,重新计算.timeer
-          timer = null //n 秒内没有触发事件 timeer 设置为null，保证了n 秒后能重新触发事件 flag = true = !timmer
+          // n 秒内 多次触发事件,重新计算.timer
+          timer = null // n 秒内没有触发事件 timeer 设置为null，保证了n 秒后能重新触发事件 flag = true = !timmer
         }, waiting)
       } else {
         timer = setTimeout(() => {

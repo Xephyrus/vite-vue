@@ -70,10 +70,10 @@
   resolved "https://registry.nlark.com/@types/minimist/download/@types/minimist-1.2.2.tgz?cache=0&sync_timestamp=1629708337116&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fminimist%2Fdownload%2F%40types%2Fminimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha1-7nceK6Sz3Fs3KTXVSf2WF780W4w=
 
-"@types/node@^16.11.4":
-  version "16.11.4"
-  resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.11.4.tgz#90771124822d6663814f7c1c9b45a6654d8fd964"
-  integrity sha1-kHcRJIItZmOBT3wcm0WmZU2P2WQ=
+"@types/node@^16.11.6":
+  version "16.11.6"
+  resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.11.6.tgz#6bef7a2a0ad684cf6e90fcfe31cecabd9ce0a3ae"
+  integrity sha1-a+96KgrWhM9ukPz+Mc7KvZzgo64=
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -85,10 +85,10 @@
   resolved "https://registry.npmmirror.com/@types/webpack-env/download/@types/webpack-env-1.16.3.tgz#b776327a73e561b71e7881d0cd6d34a1424db86a"
   integrity sha1-t3YyenPlYbceeIHQzW00oUJNuGo=
 
-"@vitejs/plugin-vue@^1.9.2":
-  version "1.9.3"
-  resolved "https://registry.npmmirror.com/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.9.3.tgz#93d61893ce6c723d0209af0483ec8b91a2cd811f"
-  integrity sha1-k9YYk85scj0CCa8Eg+yLkaLNgR8=
+"@vitejs/plugin-vue@^1.9.4":
+  version "1.9.4"
+  resolved "https://registry.npmmirror.com/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.9.4.tgz#4f48485432cbb986a9fb9d254dc33ce30ddccbfa"
+  integrity sha1-T0hIVDLLuYap+50lTcM84w3cy/o=
 
 "@volar/code-gen@^0.27.24":
   version "0.27.24"
@@ -2548,18 +2548,18 @@ sass-graph@2.2.5:
     scss-tokenizer "^0.2.3"
     yargs "^13.3.2"
 
-sass-loader@^12.2.0:
-  version "12.2.0"
-  resolved "https://registry.npmmirror.com/sass-loader/download/sass-loader-12.2.0.tgz?cache=0&sync_timestamp=1634035952677&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsass-loader%2Fdownload%2Fsass-loader-12.2.0.tgz#b370010fb0ababae2ef9c6c89e05d6c6debc6042"
-  integrity sha1-s3ABD7Crq64u+cbIngXWxt68YEI=
+sass-loader@^12.3.0:
+  version "12.3.0"
+  resolved "https://registry.npmmirror.com/sass-loader/download/sass-loader-12.3.0.tgz#93278981c189c36a58cbfc37d4b9cef0cdc02871"
+  integrity sha1-kyeJgcGJw2pYy/w31LnO8M3AKHE=
   dependencies:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
-sass@^1.43.3:
-  version "1.43.3"
-  resolved "https://registry.npmmirror.com/sass/download/sass-1.43.3.tgz?cache=0&sync_timestamp=1634867062036&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsass%2Fdownload%2Fsass-1.43.3.tgz#aa16a69131b84f0cd23189a242571e8905f1ce43"
-  integrity sha1-qhamkTG4TwzSMYmiQlceiQXxzkM=
+sass@^1.43.4:
+  version "1.43.4"
+  resolved "https://registry.npmmirror.com/sass/download/sass-1.43.4.tgz?cache=0&sync_timestamp=1635300346226&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsass%2Fdownload%2Fsass-1.43.4.tgz#68c7d6a1b004bef49af0d9caf750e9b252105d1f"
+  integrity sha1-aMfWobAEvvSa8NnK91DpslIQXR8=
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
@@ -2877,10 +2877,10 @@ svg-baker@^1.5.0, svg-baker@^1.7.0:
     query-string "^4.3.2"
     traverse "^0.6.6"
 
-svg-sprite-loader@^6.0.10:
-  version "6.0.10"
-  resolved "https://registry.npmmirror.com/svg-sprite-loader/download/svg-sprite-loader-6.0.10.tgz?cache=0&sync_timestamp=1634559533726&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsvg-sprite-loader%2Fdownload%2Fsvg-sprite-loader-6.0.10.tgz#72da4a88f39a47aed4eca15d12b9011d4cc86e70"
-  integrity sha1-ctpKiPOaR67U7KFdErkBHUzIbnA=
+svg-sprite-loader@^6.0.11:
+  version "6.0.11"
+  resolved "https://registry.npmmirror.com/svg-sprite-loader/download/svg-sprite-loader-6.0.11.tgz?cache=0&sync_timestamp=1635154404634&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsvg-sprite-loader%2Fdownload%2Fsvg-sprite-loader-6.0.11.tgz#a4d60cee3d74232a2c17d31c73a2008295f61220"
+  integrity sha1-pNYM7j10IyosF9Mcc6IAgpX2EiA=
   dependencies:
     bluebird "^3.5.0"
     deepmerge "1.3.2"
@@ -3081,10 +3081,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vite@^2.6.10:
-  version "2.6.10"
-  resolved "https://registry.npmmirror.com/vite/download/vite-2.6.10.tgz?cache=0&sync_timestamp=1634576025236&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fvite%2Fdownload%2Fvite-2.6.10.tgz#7a4f420c6e2c7d9062c7f9ce4578a817c72b3842"
-  integrity sha1-ek9CDG4sfZBix/nORXioF8crOEI=
+vite@^2.6.13:
+  version "2.6.13"
+  resolved "https://registry.npmmirror.com/vite/download/vite-2.6.13.tgz#16b3ec85a66d5b461ac29a903874d4357f9af432"
+  integrity sha1-FrPshaZtW0YawpqQOHTUNX+a9DI=
   dependencies:
     esbuild "^0.13.2"
     postcss "^8.3.8"

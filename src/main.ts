@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-09 22:58:45
- * @LastEditTime: 2021-10-26 15:37:36
+ * @LastEditTime: 2021-10-28 11:42:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \prismd:\code\vite-vue\src\main.ts
@@ -15,5 +15,4 @@ import ElementPlus from 'element-plus' // 挂载支持vue3的element UI
 import 'element-plus/lib/theme-chalk/index.css'
 import exAvatar from './components/base/ex-avatar.vue'
 
-const app: any = createApp(App)
-app.use(router).use(store).use(ElementPlus).component('exAvatar', exAvatar).mount('#app')
+createApp(App).use(router).use(store).use(ElementPlus).component('exAvatar', exAvatar).mount('#app')
